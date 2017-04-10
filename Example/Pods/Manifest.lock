@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - HZChooseButton (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - HZChooseButton (from `../`)
+
+EXTERNAL SOURCES:
+  HZChooseButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  HZChooseButton: 317382533173db9b755ef9fc715fd3735bbe9612
+
+PODFILE CHECKSUM: 64c9b095df2d3f67a10318ebe3673d2287ac248f
+
+COCOAPODS: 1.2.1.beta.1
