@@ -9,6 +9,8 @@
 #import "CustomGrid.h"
 #import "UIView+Extension.h"
 #import "UIImage+Extension.h"
+#import "CustomGridModel.h"
+
 ////颜色  ! 参数格式为：0xFFFFFF
 #define RandomColorWithRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
@@ -42,14 +44,12 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
 //创建格子
 - (id)initWithFrame:(CGRect)frame
-              title:(NSString *)title
         normalImage:(UIImage *)normalImage
    highlightedImage:(UIImage *)highlightedImage
-             gridId:(NSInteger)gridId
             atIndex:(NSInteger)index
         isAddDelete:(BOOL)isAddDelete
          deleteIcon:(UIImage *)deleteIcon
-      withIconImage:(NSString *)imageString
+withCustomGridModel:(CustomGridModel *)customGridModel
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -70,14 +70,14 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
         UIImageView * imageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,GridWidth, 34)];
         imageIcon.contentMode = UIViewContentModeCenter;
         imageIcon.centerY = GridWidth/3;
-        imageIcon.image = [UIImage imageNamed:imageString];
+        imageIcon.image = [UIImage imageNamed:customGridModel.image];
         imageIcon.tag = self.gridId;
         [self addSubview:imageIcon];
         
         
         // 标题
         UILabel * title_label = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(imageIcon.frame) + PaddingY/2, GridWidth, 20)];
-        title_label.text = title;
+        title_label.text = customGridModel.name;
         title_label.textAlignment = NSTextAlignmentCenter;
         title_label.font = [UIFont systemFontOfSize:14];
         title_label.backgroundColor = [UIColor clearColor];
@@ -86,7 +86,7 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
         
 
         //////////
-        [self setGridId:gridId];
+        [self setGridId:customGridModel.int_id];
         [self setGridIndex:index];
         [self setGridCenterPoint:self.center];
         
@@ -111,7 +111,7 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
             }
             
             //添加编辑时的点击手势
-            [_deleteBtn setTag:gridId];
+            [_deleteBtn setTag:customGridModel.int_id];
             [self addSubview:_deleteBtn];
             
             //添加长按手势

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CustomGridModel;
 
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -66,14 +67,12 @@
  * @param isDelete 是否增加删除图标
  */
 - (id)initWithFrame:(CGRect)frame
-              title:(NSString *)title
         normalImage:(UIImage *)normalImage
    highlightedImage:(UIImage *)highlightedImage
-             gridId:(NSInteger)gridId
             atIndex:(NSInteger)index
         isAddDelete:(BOOL)isAddDelete
          deleteIcon:(UIImage *)deleteIcon
-      withIconImage:(NSString *)imageString;
+withCustomGridModel:(CustomGridModel *)customGridModel;
 
 //根据格子的坐标计算格子的索引位置
 + (NSInteger)indexOfPoint:(CGPoint)point

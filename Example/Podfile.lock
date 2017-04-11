@@ -4,7 +4,9 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - HZChooseButton (0.1.0)
+  - HZChooseButton (0.1.0):
+    - MJExtension
+  - MJExtension (3.0.13)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -16,7 +18,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
-  HZChooseButton: 317382533173db9b755ef9fc715fd3735bbe9612
+  HZChooseButton: 5cf73e7a76787dec631557d3398304d3c5b6d708
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
 
 PODFILE CHECKSUM: 64c9b095df2d3f67a10318ebe3673d2287ac248f
 

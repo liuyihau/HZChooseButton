@@ -23,5 +23,10 @@
     "HZChooseButton": [
       "HZChooseButton/Assets/*.png"
     ]
+  },
+  "dependencies": {
+    "MJExtension": [
+
+    ]
   }
 }

@@ -23,6 +23,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		96CDC9CF674D3153675D7C06 /* Pods_HZChooseButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB822347CBB1C654E94D8EB /* Pods_HZChooseButton_Example.framework */; };
+		DD4A532D1E9C73E0005B34D1 /* MoveTag.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */; };
 		DD7ACC871E9774170093D328 /* HZMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7ACC861E9774170093D328 /* HZMyViewController.m */; };
 		DD7ACC8A1E9774280093D328 /* HZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7ACC891E9774280093D328 /* HZHomeViewController.m */; };
 		DD7ACCB11E9778780093D328 /* add_businesses.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACC8C1E9778780093D328 /* add_businesses.png */; };
@@ -99,6 +100,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FB822347CBB1C654E94D8EB /* Pods_HZChooseButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZChooseButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47F9F1C81E1E85CC79F685D /* HZChooseButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HZChooseButton.podspec; path = ../HZChooseButton.podspec; sourceTree = "<group>"; };
+		DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MoveTag.plist; sourceTree = "<group>"; };
 		DD7ACC851E9774170093D328 /* HZMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZMyViewController.h; sourceTree = "<group>"; };
 		DD7ACC861E9774170093D328 /* HZMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZMyViewController.m; sourceTree = "<group>"; };
 		DD7ACC881E9774280093D328 /* HZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZHomeViewController.h; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				DD7ACC8B1E9778780093D328 /* Images */,
 				6003F59C195388D20070C39A /* HZAppDelegate.h */,
 				6003F59D195388D20070C39A /* HZAppDelegate.m */,
+				DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */,
 				DD7ACC881E9774280093D328 /* HZHomeViewController.h */,
 				DD7ACC891E9774280093D328 /* HZHomeViewController.m */,
 				DD7ACC851E9774170093D328 /* HZMyViewController.h */,
@@ -409,6 +412,7 @@
 			files = (
 				DD7ACCC41E9778780093D328 /* more_icon_Prepaid-card@2x.png in Resources */,
 				DD7ACCB91E9778780093D328 /* more_icon_d1@3x.png in Resources */,
+				DD4A532D1E9C73E0005B34D1 /* MoveTag.plist in Resources */,
 				DD7ACCB31E9778780093D328 /* more_icon_-transfer@3x.png in Resources */,
 				DD7ACCD01E9778780093D328 /* more_icon_Transaction_flow@2x.png in Resources */,
 				DD7ACCBB1E9778780093D328 /* more_icon_gift@3x.png in Resources */,

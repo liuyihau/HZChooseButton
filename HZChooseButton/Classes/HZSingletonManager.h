@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface HZSingletonManager : NSObject
-// 主页 按钮 数组
-@property (strong,nonatomic) NSMutableArray * showGridArray; // 标题
-@property (strong,nonatomic) NSMutableArray * showImageGridArray; // 图片
-@property (strong,nonatomic) NSMutableArray * showGridIDArray;  //button的ID
 
+@property (strong,nonatomic) NSMutableArray * gridDateSource; // Grid所有数据
+
+@property (strong,nonatomic) NSMutableArray * myGridArray; // 我的应用 数据
 
 +(HZSingletonManager *)shareInstance;
+
 @end
