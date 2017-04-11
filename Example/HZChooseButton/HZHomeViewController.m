@@ -21,14 +21,11 @@
 }
 - (IBAction)click:(UIBarButtonItem *)sender {
     
-    
     ChooseButtonViewController * chooseButtonVC = [[ChooseButtonViewController alloc]init];
+    chooseButtonVC.title = @"全部应用";
     chooseButtonVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:chooseButtonVC animated:YES];
-   
-    
-    
-    
+ 
     
 }
 

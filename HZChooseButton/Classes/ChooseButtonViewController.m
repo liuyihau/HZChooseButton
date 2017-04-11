@@ -67,7 +67,7 @@
 #pragma  mark - Properties
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, self.view.frame.size.height) style:UITableViewStyleGrouped];
         _tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         _tableView.backgroundColor = UICOLOR_RGB(242, 246, 249);
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -195,30 +195,12 @@
 {
     [super viewDidLoad];
     
-
-    self.hidesBottomBarWhenPushed = YES;
-    
-    
-    self.navigationItem.title = @"全部应用";
-    
     self.view.backgroundColor = [UIColor lightGrayColor];
-    
-    
-    
+  
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:[[UIBarButtonItem alloc] initWithCustomView:self.button], nil]];
-    
-    
-    self.tableView.frame = CGRectMake(0, 0, ScreenWidth, self.view.frame.size.height);
-    
     
     [self.view addSubview:self.tableView];
     
-    
-    _chooseButtonDataSource = ^(NSMutableArray *choosebuttonDateSource){
-    
-        
-    
-    };
 
     //我的应用
     self.showGridArray =  [HZSingletonManager shareInstance].myGridArray;
@@ -236,20 +218,20 @@
 {
     [super viewWillAppear:animated];
     
-    for (CustomGrid * showGrid in self.gridListArray) {
-        
-        for (CustomGrid * allGrid in _allGridItemArray) {
-            
-            if (allGrid.gridId == showGrid.gridId) {
-                
-                [allGrid setIs_can_add:NO];
-                
-                break;
-                
-            }
-            
-        }
-    }
+//    for (CustomGrid * showGrid in self.gridListArray) {
+//        
+//        for (CustomGrid * allGrid in self.allGridItemArray) {
+//            
+//            if ([allGrid.gridId isEqualToNumber:showGrid.gridId]) {
+//                
+//                [allGrid setIs_can_add:NO];
+//                
+//                break;
+//                
+//            }
+//            
+//        }
+//    }
     
     
     
@@ -427,6 +409,23 @@
 -(void)editAction:(UIButton *)btn{
     
     btn.selected = !btn.selected;
+    
+    //编辑时 全部设置为可点击全部应用中 已经选中的按钮 不可点击
+    for (CustomGrid * showGrid in self.gridListArray) {
+
+        for (CustomGrid * allGrid in self.allGridItemArray) {
+
+            if ([allGrid.gridId isEqualToNumber:showGrid.gridId]) {
+
+                [allGrid setIs_can_add:NO];
+
+                break;
+
+            }
+            
+        }
+    }
+    
     self.gridListPromptLabel.hidden = NO;
     if (btn.selected) {
         
@@ -456,8 +455,9 @@
         }
         
         for (CustomGrid * grid in self.allGridItemArray) {
-            
+    
             grid.isChecked = YES;
+            
             grid.isMove = NO;
             
             UIButton *removeBtn = (UIButton *)[grid viewWithTag:grid.gridId];
@@ -469,10 +469,12 @@
             
             [UIView animateWithDuration:0.3  animations:^{
                 
-                removeBtn.transform = CGAffineTransformMakeScale(1.1, 1.1);
+                removeBtn.transform = CGAffineTransformMakeScale(1.0, 1.0);
                 
             }completion:^(BOOL finish){
                 
+                
+    
                 
             }];
             
@@ -480,6 +482,12 @@
         
         
     }else{
+        //完成时 全部设置为可点击
+        for (CustomGrid * allGrid in self.allGridItemArray) {
+            
+                [allGrid setIs_can_add:YES];
+        }
+        
         
         self.gridListPromptLabel.hidden = YES;
         for (CustomGrid * grid in self.gridListArray) {
@@ -555,7 +563,7 @@
         
         return 0.1;
     }
-    return 15;
+    return 10;
 }
 
 
@@ -670,7 +678,7 @@
          
                     for (CustomGrid * allGrid in _allGridItemArray) {
                         
-                        if (allGrid.gridId == removeGrid.gridId) {
+                        if ([allGrid.gridId isEqualToNumber:removeGrid.gridId]) {
                             
                             [allGrid setIs_can_add:YES];
                             
@@ -694,6 +702,7 @@
         }
         
     }
+    
     //不能点击的已经设置为 不能使用状态，现在能点击的都可以进行添加
     else{
         
@@ -713,7 +722,7 @@
     //将已经选中的 Grid 的状态改为不可点击
                 for (CustomGrid * allGrid in _allGridItemArray) {
                     
-                    if (allGrid.gridId == removeGrid.gridId) {
+                    if ([allGrid.gridId isEqualToNumber:removeGrid.gridId]) {
                         
                         [allGrid setIs_can_add:NO];
                         
@@ -846,7 +855,6 @@
         NSInteger toIndex = [CustomGrid indexOfPoint:gridItem.center withButton:gridItem gridArray:self.gridListArray];
         
         NSInteger borderIndex = [self.showGridArray indexOfObject:@"0"];
-        NSLog(@"borderIndex: %ld", (long)borderIndex);
         
         if (toIndex < 0 || toIndex >= borderIndex) {
             contain = NO;

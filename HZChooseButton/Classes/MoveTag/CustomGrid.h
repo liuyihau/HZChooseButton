@@ -32,7 +32,7 @@
 
 @interface CustomGrid : UIButton
 //格子的ID
-@property(nonatomic, assign)NSInteger gridId;
+@property(nonatomic, strong)NSNumber * gridId;
 
 //格子的title
 @property(nonatomic, strong)NSString *gridTitle;

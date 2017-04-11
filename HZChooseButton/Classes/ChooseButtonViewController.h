@@ -14,10 +14,12 @@ typedef void (^chooseButtonDataSource)(NSMutableArray * choosebuttonDateSource);
 
 //我的应用
 @property (nonatomic, strong) NSMutableArray * gridListArray;
+//我的应用 数据源
 @property (nonatomic, strong) NSMutableArray * showGridArray;
 
 //全部应用
 @property (nonatomic, strong) NSMutableArray * allGridItemArray;
+//全部应用 数据源
 @property (nonatomic, strong) NSMutableArray * allGridArray;
 
 //所有按钮数据
