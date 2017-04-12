@@ -8,6 +8,8 @@
 
 #import "HZHomeViewController.h"
 #import "ChooseButtonViewController.h"
+#import "FunctionMenuView.h"
+#import "CustomGridModel.h"
 
 @interface HZHomeViewController ()
 
@@ -18,6 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MoveTag" ofType:@"plist"];
+    NSMutableArray * arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+    
+    //创建视图并初始化数据源
+    FunctionMenuView * menuView = [[FunctionMenuView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200) gridDateSource:arrayM number:7];
+    
+    menuView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:menuView];
+    
+    
+    
 }
 - (IBAction)click:(UIBarButtonItem *)sender {
     
@@ -25,7 +39,7 @@
     chooseButtonVC.title = @"全部应用";
     chooseButtonVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:chooseButtonVC animated:YES];
- 
+
     
 }
 

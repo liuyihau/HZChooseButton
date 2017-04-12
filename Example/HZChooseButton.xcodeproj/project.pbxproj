@@ -24,7 +24,6 @@
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		96CDC9CF674D3153675D7C06 /* Pods_HZChooseButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB822347CBB1C654E94D8EB /* Pods_HZChooseButton_Example.framework */; };
 		DD4A532D1E9C73E0005B34D1 /* MoveTag.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */; };
-		DD7ACC871E9774170093D328 /* HZMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7ACC861E9774170093D328 /* HZMyViewController.m */; };
 		DD7ACC8A1E9774280093D328 /* HZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7ACC891E9774280093D328 /* HZHomeViewController.m */; };
 		DD7ACCB11E9778780093D328 /* add_businesses.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACC8C1E9778780093D328 /* add_businesses.png */; };
 		DD7ACCB21E9778780093D328 /* more_icon_-transfer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACC8D1E9778780093D328 /* more_icon_-transfer@2x.png */; };
@@ -63,6 +62,7 @@
 		DD7ACCD31E9778780093D328 /* more_icon_Transfer-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACCAE1E9778780093D328 /* more_icon_Transfer-@3x.png */; };
 		DD7ACCD41E9778780093D328 /* work-order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACCAF1E9778780093D328 /* work-order@2x.png */; };
 		DD7ACCD51E9778780093D328 /* work-order@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7ACCB01E9778780093D328 /* work-order@3x.png */; };
+		DDB71C0D1E9CE9BA0002EB48 /* HZTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB71C0C1E9CE9BA0002EB48 /* HZTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +101,6 @@
 		8FB822347CBB1C654E94D8EB /* Pods_HZChooseButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HZChooseButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47F9F1C81E1E85CC79F685D /* HZChooseButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HZChooseButton.podspec; path = ../HZChooseButton.podspec; sourceTree = "<group>"; };
 		DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MoveTag.plist; sourceTree = "<group>"; };
-		DD7ACC851E9774170093D328 /* HZMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZMyViewController.h; sourceTree = "<group>"; };
-		DD7ACC861E9774170093D328 /* HZMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZMyViewController.m; sourceTree = "<group>"; };
 		DD7ACC881E9774280093D328 /* HZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZHomeViewController.h; sourceTree = "<group>"; };
 		DD7ACC891E9774280093D328 /* HZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZHomeViewController.m; sourceTree = "<group>"; };
 		DD7ACC8C1E9778780093D328 /* add_businesses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_businesses.png; sourceTree = "<group>"; };
@@ -142,6 +140,8 @@
 		DD7ACCAE1E9778780093D328 /* more_icon_Transfer-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_icon_Transfer-@3x.png"; sourceTree = "<group>"; };
 		DD7ACCAF1E9778780093D328 /* work-order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-order@2x.png"; sourceTree = "<group>"; };
 		DD7ACCB01E9778780093D328 /* work-order@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-order@3x.png"; sourceTree = "<group>"; };
+		DDB71C0B1E9CE9BA0002EB48 /* HZTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZTestViewController.h; sourceTree = "<group>"; };
+		DDB71C0C1E9CE9BA0002EB48 /* HZTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZTestViewController.m; sourceTree = "<group>"; };
 		E40C5DF4FB6097E819450AE6 /* Pods-HZChooseButton_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZChooseButton_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZChooseButton_Tests/Pods-HZChooseButton_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EFB8A2E9D05B05482580E937 /* Pods-HZChooseButton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HZChooseButton_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HZChooseButton_Example/Pods-HZChooseButton_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F90B9B7A1A4E9D29E23D36DB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 				DD4A532C1E9C73E0005B34D1 /* MoveTag.plist */,
 				DD7ACC881E9774280093D328 /* HZHomeViewController.h */,
 				DD7ACC891E9774280093D328 /* HZHomeViewController.m */,
-				DD7ACC851E9774170093D328 /* HZMyViewController.h */,
-				DD7ACC861E9774170093D328 /* HZMyViewController.m */,
+				DDB71C0B1E9CE9BA0002EB48 /* HZTestViewController.h */,
+				DDB71C0C1E9CE9BA0002EB48 /* HZTestViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -564,8 +564,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* HZAppDelegate.m in Sources */,
-				DD7ACC871E9774170093D328 /* HZMyViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				DDB71C0D1E9CE9BA0002EB48 /* HZTestViewController.m in Sources */,
 				DD7ACC8A1E9774280093D328 /* HZHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

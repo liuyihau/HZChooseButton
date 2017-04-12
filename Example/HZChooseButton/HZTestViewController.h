@@ -1,13 +1,13 @@
 //
-//  HZMyViewController.h
+//  HZTestViewController.h
 //  HZChooseButton
 //
-//  Created by LiuYihua on 2017/4/7.
+//  Created by LiuYihua on 2017/4/11.
 //  Copyright © 2017年 liuyihua2015@sina.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface HZMyViewController : UIViewController
+@interface HZTestViewController : UIViewController
 
 @end

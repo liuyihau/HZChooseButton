@@ -213,29 +213,6 @@
 }
 
 
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-//    for (CustomGrid * showGrid in self.gridListArray) {
-//        
-//        for (CustomGrid * allGrid in self.allGridItemArray) {
-//            
-//            if ([allGrid.gridId isEqualToNumber:showGrid.gridId]) {
-//                
-//                [allGrid setIs_can_add:NO];
-//                
-//                break;
-//                
-//            }
-//            
-//        }
-//    }
-    
-    
-    
-}
 #pragma mark - 初始化 我的应用
 - (void)creatMyScrollViewOnView
 {
@@ -264,7 +241,7 @@
         CustomGridModel * customGridM = self.showGridArray[index];
         
         BOOL isAddDelete = YES;
-        if ([customGridM.name isEqualToString:@"更多"]) {
+        if ([customGridM.name isEqualToString:@"全部"]) {
             isAddDelete = NO;
         }
         
@@ -348,13 +325,19 @@
     
     UIImage *deleteIconImg = nil;
     
+
     
     for (NSInteger index = 0; index < _allGridArray.count; index++)
     {
 
         CustomGridModel * customGridM = _allGridArray[index];
         
-        CustomGrid *gridItem = [[CustomGrid alloc] initWithFrame:CGRectZero  normalImage:normalImage highlightedImage:highlightedImage  atIndex:index isAddDelete:YES deleteIcon:deleteIconImg withCustomGridModel:customGridM];
+        BOOL isAddDelete = YES;
+        if ([customGridM.name isEqualToString:@"全部"]) {
+            isAddDelete = NO;
+        }
+        
+        CustomGrid *gridItem = [[CustomGrid alloc] initWithFrame:CGRectZero  normalImage:normalImage highlightedImage:highlightedImage  atIndex:index isAddDelete:isAddDelete deleteIcon:deleteIconImg withCustomGridModel:customGridM];
         gridItem.delegate = self;
 
         gridItem.gridTitle = customGridM.name;

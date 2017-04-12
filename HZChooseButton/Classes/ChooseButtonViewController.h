@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CustomGrid;
+
 typedef void (^chooseButtonDataSource)(NSMutableArray * choosebuttonDateSource);
 
 @interface ChooseButtonViewController : UIViewController
@@ -25,5 +27,8 @@ typedef void (^chooseButtonDataSource)(NSMutableArray * choosebuttonDateSource);
 //所有按钮数据
 @property (nonatomic, strong) chooseButtonDataSource  chooseButtonDataSource;
 
+
+#pragma mark -
+- (void)gridItemDidClicked:(CustomGrid *)gridItem;
 
 @end

@@ -11,6 +11,7 @@
 #endif
 
 #import "ChooseButtonViewController.h"
+#import "FunctionMenuView.h"
 #import "HZSingletonManager.h"
 #import "CustomGrid.h"
 #import "CustomGridModel.h"
