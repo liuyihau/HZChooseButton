@@ -10,14 +10,7 @@
 #import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "CustomGridModel.h"
-
-////颜色  ! 参数格式为：0xFFFFFF
-#define RandomColorWithRGB(rgbValue) \
-[UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 \
-blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
-
-#define ISIPHONE5s ( [UIScreen mainScreen].bounds.size.width >=320 && [UIScreen mainScreen].bounds.size.width <375)
+#import "ChooseButtonConst.h"
 
 @interface CustomGrid()
 

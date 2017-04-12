@@ -12,14 +12,7 @@
 #import "UIImage+Extension.h"
 #import "CustomGridModel.h"
 #import "MJExtension.h"
-
-#ifdef DEBUG
-#define NSLog( s, ... ) NSLog( @"========<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-#else
-#define NSLog( s, ... )
-#endif
-
-#define UICOLOR_RGB(R,G,B)                  ([UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1])
+#import "ChooseButtonConst.h"
 
 @interface ChooseButtonViewController ()<CustomGridDelegate,UITableViewDelegate,UITableViewDataSource>
 {
@@ -143,7 +136,6 @@
     
 }
 
-
 -(UILabel *)createLabelWithText:(NSString *)text font:(CGFloat)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)textAlignment{
     
     UILabel * label = [[UILabel alloc]init];
@@ -170,7 +162,6 @@
     }
     return _promptLabel;
 }
-
 
 
 #pragma mark - init
@@ -920,6 +911,17 @@
         gridItem.gridCenterPoint = gridItem.center;
     }
     
+    for (CustomGrid *tempGrid  in self.gridListArray) {
+        
+        NSLog(@"%@",tempGrid.gridTitle);
+        
+    }
+    for (CustomGridModel *tempGridM  in self.showGridArray) {
+        
+        NSLog(@"%@",tempGridM.name);
+        
+    }
+    
     // 保存更新后数组
     [self saveArray];
 }
@@ -936,6 +938,7 @@
     [NSKeyedArchiver archiveRootObject:self.showGridArray toFile:filePath];
     
     
+    _loadGridListViewDataSoruce(self.showGridArray);
 }
 
 @end

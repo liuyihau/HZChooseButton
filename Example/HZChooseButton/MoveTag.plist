@@ -106,5 +106,29 @@
 		<key>int_id</key>
 		<string>1012</string>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>审批</string>
+		<key>image</key>
+		<string>icon_approval</string>
+		<key>int_id</key>
+		<string>1013</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>值班管理</string>
+		<key>image</key>
+		<string>icon_duty</string>
+		<key>int_id</key>
+		<string>1014</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>兑换</string>
+		<key>image</key>
+		<string>icon_exchange</string>
+		<key>int_id</key>
+		<string>1015</string>
+	</dict>
 </array>
 </plist>

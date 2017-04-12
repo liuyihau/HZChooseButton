@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "ChooseButtonConst.h"
 #import "ChooseButtonViewController.h"
 #import "FunctionMenuView.h"
 #import "HZSingletonManager.h"

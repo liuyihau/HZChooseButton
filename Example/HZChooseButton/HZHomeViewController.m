@@ -9,34 +9,98 @@
 #import "HZHomeViewController.h"
 #import "ChooseButtonViewController.h"
 #import "FunctionMenuView.h"
-#import "CustomGridModel.h"
+#import "HZSingletonManager.h"
+#import "CustomGrid.h"
 
 @interface HZHomeViewController ()
-
+@property (nonatomic, strong) FunctionMenuView * menuView;
 @end
 
 @implementation HZHomeViewController
 
+
+//-(FunctionMenuView *)menuView{
+//    
+//    if (!_menuView) {
+//        
+//        _menuView = [[FunctionMenuView alloc]init];
+//     
+//    }
+//    return _menuView;
+//}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MoveTag" ofType:@"plist"];
     NSMutableArray * arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     
     //创建视图并初始化数据源
-    FunctionMenuView * menuView = [[FunctionMenuView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200) gridDateSource:arrayM number:7];
+    self.menuView = [[FunctionMenuView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 212) gridDateSource:arrayM number:7];
     
-    menuView.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:menuView];
+    NSMutableArray * myGridArray =  [HZSingletonManager shareInstance].myGridArray;
+    
+    [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:myGridArray];
+    
+    self.menuView.listViweClick = ^(CustomGrid *gridItem){
+    
+        NSLog(@"%@",gridItem.gridTitle);
+        
+    };
+   
+    __weak typeof(self) weakSelf = self;
+    _menuView.listViweLongPress = ^(){
+    
+        //1.创建UIAlertController控制器
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"提示"message:@"想调整排序?进入全部应用进行编辑吧"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        //2.创建按钮
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"去编辑" style:UIAlertActionStyleDefault handler:^(UIAlertAction* _Nonnull action) {
+ 
+            ChooseButtonViewController * chooseButtonVC = [[ChooseButtonViewController alloc]init];
+            chooseButtonVC.title = @"全部应用";
+            chooseButtonVC.loadGridListViewDataSoruce = ^(NSMutableArray * dateSource){
+                
+                
+                
+            };
+            chooseButtonVC.view.backgroundColor = [UIColor whiteColor];
+            [weakSelf.navigationController pushViewController:chooseButtonVC animated:YES];
+
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        
+        //4.显示对话框
+        [weakSelf presentViewController:alertController animated:YES completion:nil];
+        
+    
+    };
     
     
+    [self.view addSubview:_menuView];
     
 }
+
+
+
 - (IBAction)click:(UIBarButtonItem *)sender {
     
     ChooseButtonViewController * chooseButtonVC = [[ChooseButtonViewController alloc]init];
     chooseButtonVC.title = @"全部应用";
+    __weak typeof(self) weakSelf = self;
+    chooseButtonVC.loadGridListViewDataSoruce = ^(NSMutableArray * dateSource){
+
+        
+        [weakSelf.menuView setGridListDataSource:dateSource];
+        
+        
+    };
+
     chooseButtonVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:chooseButtonVC animated:YES];
 

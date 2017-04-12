@@ -10,7 +10,7 @@
 
 @class CustomGrid;
 
-typedef void (^chooseButtonDataSource)(NSMutableArray * choosebuttonDateSource);
+typedef void (^loadGridListViewDataSoruce)(NSMutableArray * dateSource);
 
 @interface ChooseButtonViewController : UIViewController
 
@@ -24,8 +24,10 @@ typedef void (^chooseButtonDataSource)(NSMutableArray * choosebuttonDateSource);
 //全部应用 数据源
 @property (nonatomic, strong) NSMutableArray * allGridArray;
 
-//所有按钮数据
-@property (nonatomic, strong) chooseButtonDataSource  chooseButtonDataSource;
+/**
+ 刷新首页数据源
+ */
+@property (nonatomic, strong) loadGridListViewDataSoruce  loadGridListViewDataSoruce;
 
 
 #pragma mark -
