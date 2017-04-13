@@ -38,20 +38,26 @@
     NSMutableArray * arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     
     //创建视图并初始化数据源
-    self.menuView = [[FunctionMenuView alloc]initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 212) gridDateSource:arrayM number:7];
+    self.menuView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:arrayM number:7];
     
     NSMutableArray * myGridArray =  [HZSingletonManager shareInstance].myGridArray;
     
-    [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:myGridArray];
+    
+    CGFloat cellHeight = [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:myGridArray];
+    
+
+    [self.menuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, cellHeight)];
+
+    
+    __weak typeof(self) weakSelf = self;
     
     self.menuView.listViweClick = ^(CustomGrid *gridItem){
     
-        NSLog(@"%@",gridItem.gridTitle);
+        NSLog(@"%@",gridItem.int_id);
         
     };
-   
-    __weak typeof(self) weakSelf = self;
-    _menuView.listViweLongPress = ^(){
+
+    _menuView.listViweLongPress = ^(CustomGrid *gridItem){
     
         //1.创建UIAlertController控制器
         UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"提示"message:@"想调整排序?进入全部应用进行编辑吧"
@@ -80,6 +86,7 @@
         
     
     };
+    _menuView.listViweLongPressGestureStateEnded = ^(CustomGrid *gridItem){};
     
     
     [self.view addSubview:_menuView];

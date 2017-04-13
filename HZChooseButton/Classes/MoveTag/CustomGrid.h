@@ -26,28 +26,23 @@
 
 @interface CustomGrid : UIButton
 //格子的ID
-@property(nonatomic, strong)NSNumber * gridId;
-
+@property (nonatomic, strong) NSNumber *    int_id;
 //格子的title
-@property(nonatomic, strong)NSString *gridTitle;
+@property (nonatomic, strong) NSString *    name;
 //格子的图片
-@property(nonatomic, strong)NSString *gridImageString;
-
+@property (nonatomic, strong) NSString *    image;
 //格子的选中状态
-@property(nonatomic, assign)BOOL      isChecked;
+@property (nonatomic, assign) BOOL          isChecked;
 //格子的移动状态
-@property(nonatomic, assign)BOOL      isMove;
+@property (nonatomic, assign) BOOL          isMove;
 //格子的排列索引位置
-@property(nonatomic, assign)NSInteger gridIndex;
+@property (nonatomic, assign) NSInteger     gridIndex;
 //格子的位置坐标
-@property(nonatomic, assign)CGPoint   gridCenterPoint;
+@property (nonatomic, assign) CGPoint       gridCenterPoint;
 //是否显示边框
-@property (nonatomic, assign)BOOL  isShowBorder;
-
-
+@property (nonatomic, assign) BOOL          isShowBorder;
 //全部安全中能否点击
-@property (nonatomic, assign)BOOL  is_can_add;
-
+@property (nonatomic, assign) BOOL          is_can_add;
 
 //代理方法
 @property(nonatomic, weak)id<CustomGridDelegate> delegate;

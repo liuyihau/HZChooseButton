@@ -9,7 +9,6 @@
 #import "CustomGrid.h"
 #import "UIView+Extension.h"
 #import "UIImage+Extension.h"
-#import "CustomGridModel.h"
 #import "ChooseButtonConst.h"
 
 @interface CustomGrid()
@@ -24,6 +23,24 @@
 
 @synthesize delegate;
 
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        _image = [aDecoder decodeObjectForKey:@"_image"];
+        _int_id = [aDecoder decodeObjectForKey:@"_int_id"];
+        _name = [aDecoder decodeObjectForKey:@"_name"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.image forKey:@"_image"];
+    [aCoder encodeObject:self.int_id forKey:@"_int_id"];
+    [aCoder encodeObject:self.name forKey:@"_name"];
+}
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -42,7 +59,7 @@
             atIndex:(NSInteger)index
         isAddDelete:(BOOL)isAddDelete
          deleteIcon:(UIImage *)deleteIcon
-withCustomGridModel:(CustomGridModel *)customGridModel
+withCustomGridModel:(CustomGrid *)customGridModel
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -64,7 +81,7 @@ withCustomGridModel:(CustomGridModel *)customGridModel
         imageIcon.contentMode = UIViewContentModeCenter;
         imageIcon.centerY = GridWidth/3;
         imageIcon.image = [UIImage imageNamed:customGridModel.image];
-        imageIcon.tag = self.gridId;
+        imageIcon.tag = self.int_id;
         [self addSubview:imageIcon];
         
         
@@ -79,7 +96,7 @@ withCustomGridModel:(CustomGridModel *)customGridModel
         
 
         //////////
-        [self setGridId:customGridModel.int_id];
+        [self setInt_id:customGridModel.int_id];
         [self setGridIndex:index];
         [self setGridCenterPoint:self.center];
         
@@ -225,12 +242,12 @@ withCustomGridModel:(CustomGridModel *)customGridModel
     
     if (is_can_add) {//能点击
         
-        [_deleteBtn setImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_add@2x.png"] forState:UIControlStateNormal];
+        [_deleteBtn setBackgroundImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_add@2x.png"] forState:UIControlStateNormal];
         self.userInteractionEnabled = YES;
         
     }else{//不能点击
         
-        [_deleteBtn setImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_no@2x.png"] forState:UIControlStateNormal];
+        [_deleteBtn setBackgroundImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_no@2x.png"] forState:UIControlStateNormal];
         self.userInteractionEnabled = NO;
 
     }
