@@ -22,13 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="6uk-bl-Ur2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="krH-js-yuC">
-                            <connections>
-                                <action selector="click:" destination="aq9-wy-KVa" id="sQh-9y-o4E"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="首页" id="6uk-bl-Ur2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kI6-Vv-W0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
