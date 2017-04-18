@@ -138,7 +138,7 @@ withCustomGridModel:(CustomGrid *)customGridModel
 - (void)gridClick:(CustomGrid *)clickItem
 {
     
-    if (clickItem.deleteBtn.hidden == YES) {
+    if ([clickItem.int_id isEqualToNumber:[NSNumber numberWithInt:0]] || clickItem.deleteBtn.hidden) {
         
          [self.delegate gridItemDidClicked:clickItem];
      

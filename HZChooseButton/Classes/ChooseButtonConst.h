@@ -19,6 +19,9 @@
 #define UICOLOR_RGB(R,G,B)        ([UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1])
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+// 随机色
+#define  RGBRandomColor UICOLOR_RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
 ////颜色  ! 参数格式为：0xFFFFFF
 #define RandomColorWithRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 \

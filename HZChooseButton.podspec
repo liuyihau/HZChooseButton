@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZChooseButton'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of HZChooseButton.'
+  s.version          = '0.1.1'
+  s.summary          = '首页可选择式按钮菜单'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                        首页可选择式按钮菜单，类似于支付宝首页的按钮选择菜单
                        DESC
 
   s.homepage         = 'https://github.com/liuyihua2015@sina.com/HZChooseButton'
