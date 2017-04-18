@@ -74,7 +74,7 @@ withCustomGridModel:(CustomGrid *)customGridModel
         self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         [self addTarget:self action:@selector(gridClick:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self setBackgroundColor:[UIColor whiteColor]];
+        [self setBackgroundColor:[UIColor clearColor]];
 
         // 图片icon
         UIImageView * imageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,GridWidth, 34)];
@@ -82,6 +82,7 @@ withCustomGridModel:(CustomGrid *)customGridModel
         imageIcon.centerY = GridWidth/3;
         imageIcon.image = [UIImage imageNamed:customGridModel.image];
         imageIcon.tag = self.int_id;
+        imageIcon.backgroundColor = [UIColor clearColor];
         [self addSubview:imageIcon];
         
         
@@ -108,9 +109,7 @@ withCustomGridModel:(CustomGrid *)customGridModel
             [_deleteBtn setBackgroundColor:[UIColor clearColor]];
             [_deleteBtn setBackgroundImage:deleteIcon forState:UIControlStateNormal];
             _deleteBtn.userInteractionEnabled = NO;
-            
-//            [_deleteBtn addTarget:self action:@selector(deleteGrid:) forControlEvents:UIControlEventTouchUpInside];
-            
+                     
             [_deleteBtn setHidden:YES];
             
             if (ISIPHONE5s) {

@@ -10,19 +10,18 @@
 
 @class CustomGrid;
 
-typedef void (^loadGridListViewDataSoruce)(NSMutableArray * dateSource);
+typedef void (^func_loadGridListViewDataSoruce)(NSMutableArray * dateSource);
+typedef void (^func_listViweClick)(CustomGrid *gridItem);
 
 @interface ChooseButtonViewController : UIViewController
-
 
 
 /**
  刷新首页数据源
  */
-@property (nonatomic, strong) loadGridListViewDataSoruce  loadGridListViewDataSoruce;
+@property (nonatomic, copy) func_loadGridListViewDataSoruce  func_loadGridListViewDataSoruce;
+@property (nonatomic, copy) func_listViweClick func_listViweClick;
 
-
-#pragma mark -
-- (void)gridItemDidClicked:(CustomGrid *)gridItem;
+@property (nonatomic, assign) BOOL fromEditBtn;
 
 @end

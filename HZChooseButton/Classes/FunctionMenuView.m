@@ -14,7 +14,6 @@
 #import "ChooseButtonConst.h"
 #import "CustomGrid.h"
 
-
 @interface FunctionMenuView()<CustomGridDelegate>
 {
     BOOL contain;
@@ -106,6 +105,20 @@
     }
     return _gridListArray;
 }
+
+#pragma mark - 视图相关事件
+-(void)functionMeunViewActionWithAddGridItem:(addGridItem)addGridItem getlistViweHeight:(getlistViweHeight)getlistViweHeight listViweClick:(listViweClick)listViweClick listViweLongPress:(listViweLongPress)listViweLongPress loadListViewDataSoruce:(loadListViewDataSoruce)loadListViewDataSoruce{
+
+
+    self.addGridItem = addGridItem;
+    self.getlistViweHeight = getlistViweHeight;
+    self.listViweClick = listViweClick;
+    self.listViweLongPress = listViweLongPress;
+    self.loadListViewDataSoruce = loadListViewDataSoruce;
+
+
+}
+
 #pragma mark -  编辑及完成操作方法
 /**
  编辑及完成操作方法
@@ -113,7 +126,7 @@
  @param isPrompthidden 是否隐藏 提示语句
  @param allGridListView 是否是全部应用
  */
--(void)editGridListViewWithPrompthidden:(BOOL)isPrompthidden isAllGridListView:(BOOL)allGridListView showGridArray:(NSMutableArray *)showGridArray
+-(void)editGridListViewWithPrompthidden:(BOOL)isPrompthidden isAllGridListView:(BOOL)allGridListView showGridArray:(NSMutableArray *)showGridArray animated:(BOOL)animated
 {
 
 //  按住拖动调整顺序
@@ -160,20 +173,19 @@
     
             UIButton *removeBtn = (UIButton *)[grid viewWithTag:grid.int_id];
             removeBtn.hidden = NO;
-            
-            removeBtn.transform = CGAffineTransformMakeScale(0.05, 0.05);
-            
             grid.isShowBorder = YES;
             
-            [UIView animateWithDuration:0.3  animations:^{
+            if (animated) {
                 
-                removeBtn.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                
-            }completion:^(BOOL finish){
-                
-                
-                
-            }];
+                removeBtn.transform = CGAffineTransformMakeScale(0.05, 0.05);
+                [UIView animateWithDuration:0.3  animations:^{
+                    
+                    removeBtn.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                    
+                }completion:^(BOOL finish){
+                    
+                }];
+            }
             
         }
         
@@ -184,6 +196,7 @@
             for (CustomGrid * allGrid in self.gridListArray) {
                 
                 [allGrid setIs_can_add:YES];
+                allGrid.isMove = NO;
             }
             
         }
@@ -192,13 +205,26 @@
             
             grid.isChecked = NO;
             grid.isMove = NO;
-            [UIView animateWithDuration:0.3 animations:^{
-                
+            
+            if (animated) {
+            
+                [UIView animateWithDuration:0.3 animations:^{
+                    
+                    grid.isShowBorder = NO;
+                    UIButton *removeBtn = (UIButton *)[grid viewWithTag:grid.int_id];
+                    removeBtn.hidden = YES;
+                    
+                }];
+            
+            
+            }else{
+            
                 grid.isShowBorder = NO;
                 UIButton *removeBtn = (UIButton *)[grid viewWithTag:grid.int_id];
                 removeBtn.hidden = YES;
-                
-            }];
+            
+            }
+            
             
         }
         
@@ -276,14 +302,19 @@
     
 }
 
+#pragma mark - 首页的数据进行刷新重新排序
+
 -(void)setGridListDataSource:(NSMutableArray *)gridListDataSource{
 
     _gridListDataSource = gridListDataSource;
-
-
-    NSLog(@"%d",gridListDataSource.count);
     
-    [self createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES gridListDataSource:gridListDataSource];
+    CGFloat cellHeight = [self createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES gridListDataSource:gridListDataSource];
+    
+    
+    if (self.getlistViweHeight != nil) {
+        
+        self.getlistViweHeight(cellHeight,gridListDataSource,nil);
+    }
     
 
 }
@@ -378,7 +409,8 @@
     
     if (hideNameLabel) {//在首页显示时，不需要显示 nameLabel
         
-        self.gridListNameLabel.text = @"";
+        [self.gridListNameLabel removeFromSuperview];
+        [self.promptLabel removeFromSuperview];
         
         [_gridListView setFrame:CGRectMake(0,0, ScreenWidth, gridHeight)];
 
@@ -408,7 +440,11 @@
 #pragma mark - 点击格子
 - (void)gridItemDidClicked:(CustomGrid *)gridItem
 {
-    _listViweClick(gridItem);
+    
+    if (self.listViweClick != nil) {
+        self.listViweClick(gridItem);
+    }
+
 }
 
 #pragma mark - 格子选择操作
@@ -466,7 +502,11 @@
                     //更新页面
                     CGFloat cell_Hight = [self loadGridListViewWithHideNameLabel:NO gridListDataSource:self.gridListArray];
                     
-                    _getlistViweHeight(cell_Hight,removeGrid,YES);
+                    if (self.getlistViweHeight != nil) {
+                        
+                        self.getlistViweHeight(cell_Hight,removeGrid,YES);
+                    }
+                
                     
           
                 }];
@@ -478,12 +518,11 @@
     
     //不能点击的已经设置为 不能使用状态，现在能点击的都可以进行添加
     else{
-        
         for (NSInteger i = 0; i < self.gridListArray.count; i++) {
             CustomGrid *removeGrid = self.gridListArray[i];
             if (removeGrid.int_id == deleteButton.tag) {
                 
-              //将已经选中的 Grid 的状态改为不可点击
+               //将已经选中的 Grid 的状态改为不可点击
                 for (CustomGrid * allGrid in self.gridListArray) {
                     
                     if ([allGrid.int_id isEqualToNumber:removeGrid.int_id]) {
@@ -496,7 +535,12 @@
                     
                 }
                 
-                
+                //再添加 属性转换
+                if (self.addGridItem != nil) {
+                      self.addGridItem(removeGrid);
+                }
+
+                //小图标变化
                 deleteButton.transform = CGAffineTransformMakeScale(1.0, 1.0);
                 
                 [UIView animateWithDuration:0.3 animations:^{
@@ -511,11 +555,6 @@
                         
                     } completion:^(BOOL finished) {
  
-//                        [self.gridListArray removeObject:removeGrid];
-                        [HZSingletonManager shareInstance].gridDateSource = self.gridListArray;
-                        
-                        //属性转换
-                        _addGridItem(removeGrid);
                         
                     }];
                     
@@ -530,6 +569,7 @@
     
 }
 
+#pragma mark -  添加item到我的应用中
 /**
  添加item到我的应用中
 
@@ -537,6 +577,8 @@
  */
 -(void)addGridItemToMyGridListViewWithselectGrid:(CustomGrid *)selectGrid{
 
+    [self layoutSubviews];
+    
     CustomGrid *gridItem = [[CustomGrid alloc] initWithFrame:CGRectZero normalImage:normalImage highlightedImage:highlightedImage atIndex:self.gridListArray.count isAddDelete:YES deleteIcon:deleteIconImage withCustomGridModel:selectGrid];
     
     gridItem.delegate = self;
@@ -556,12 +598,20 @@
     
     CGFloat cellHight =  [self loadGridListViewWithHideNameLabel:NO gridListDataSource:self.gridListArray];
  
-    _getlistViweHeight(cellHight,gridItem,NO);
+    
+    if (self.getlistViweHeight != nil) {
+        
+        self.getlistViweHeight(cellHight,gridItem,NO);
+    }
+
 
     [self sortGridList];
+    
+    self.promptLabel.hidden = YES;
 
 }
 
+#pragma mark -  删除我的应用
 /**
  我的应用删除，改变全部应用中的某个应用
  
@@ -580,6 +630,7 @@
         }
 
     }
+    
 
 }
 
@@ -615,28 +666,160 @@
     NSString *filePath = [path stringByAppendingPathComponent:@"showGridArray"];
     [NSKeyedArchiver archiveRootObject:self.gridListArray toFile:filePath];
     
-//    _loadGridListViewDataSoruce(self.gridListArray);
-}
+    if (self.loadListViewDataSoruce != nil) {
+        
+        self.loadListViewDataSoruce(self.gridListArray);
+        
+    }
 
+    
+}
 
 
 #pragma mark - 长按格子
 - (void)pressGestureStateBegan:(UILongPressGestureRecognizer *)longPressGesture withGridItem:(CustomGrid *) grid
 {
+    if (self.listViweLongPress != nil) {
+        
+        self.listViweLongPress(grid);
+    }
     
-    _listViweLongPress(grid);
+    if (!_isHomeView) {
+        
+        //1.获取移动格子的起始位置
+        startPoint = [longPressGesture locationInView:longPressGesture.view];
+           //获取移动格子的起始位置中心点
+        originPoint = longPressGesture.view.center;
+        
+        //2.改变选择状态
+        grid.isChecked = YES;
+        
+        //3.选中可移动的视图进行偏移5
+        if (grid.isMove) {
+            //向右下角偏移5
+            CGRect frame = grid.frame;
+            frame.origin.x += 10;
+            frame.origin.y += 10;
+            grid.frame = frame;
+        }
+        
+
+        //4.我的应用中 改为可移动
+        for (CustomGrid * gridItem in [HZSingletonManager shareInstance].myGridArray) {
+            
+            if (gridItem.int_id == grid.int_id) {
+                
+                grid.isMove = YES;
+                
+            }
+            
+        }
+        
+        //5.选中视图 缩放
+        if (grid.isChecked) {
+            
+            grid.transform = CGAffineTransformMakeScale(1.1, 1.1);
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                
+                grid.transform = CGAffineTransformMakeScale(1.0, 1.0);
+            }];
+            
+        }
+    }
     
 }
 #pragma mark - 拖动位置
 - (void)pressGestureStateChangedWithPoint:(CGPoint) gridPoint gridItem:(CustomGrid *) gridItem
 {
-    _listViweLongPressGestureStateChanged(gridItem);
+    
+    if ( gridItem.isChecked && gridItem.isMove) {
+        
+        [_gridListView bringSubviewToFront:gridItem];
+        //应用移动后的X坐标
+        CGFloat deltaX = gridPoint.x - startPoint.x;
+        //应用移动后的Y坐标
+        CGFloat deltaY = gridPoint.y - startPoint.y;
+        //拖动的应用跟随手势移动
+        gridItem.center = CGPointMake(gridItem.center.x + deltaX, gridItem.center.y + deltaY);
+        
+        //移动的格子索引下标
+        NSInteger fromIndex = gridItem.gridIndex;
+        //移动到目标格子的索引下标
+        NSInteger toIndex = [CustomGrid indexOfPoint:gridItem.center withButton:gridItem gridArray:self.gridListArray];
+        
+        NSInteger borderIndex = [self.gridListArray indexOfObject:@"0"];
+        
+        if (toIndex < 0 || toIndex >= borderIndex) {
+            contain = NO;
+        }else{
+            //获取移动到目标格子
+            CustomGrid *targetGrid = self.gridListArray[toIndex];
+            gridItem.center = targetGrid.gridCenterPoint;
+            originPoint = targetGrid.gridCenterPoint;
+            gridItem.gridIndex = toIndex;
+            
+            //判断格子的移动方向，是从后往前还是从前往后拖动
+            if ((fromIndex - toIndex) > 0) {
+                //                NSLog(@"从后往前拖动格子.......");
+                //从移动格子的位置开始，始终获取最后一个格子的索引位置
+                NSInteger lastGridIndex = fromIndex;
+                for (NSInteger i = toIndex; i < fromIndex; i++) {
+                    CustomGrid *lastGrid = self.gridListArray[lastGridIndex];
+                    CustomGrid *preGrid = self.gridListArray[lastGridIndex-1];
+                    [UIView animateWithDuration:0.5 animations:^{
+                        preGrid.center = lastGrid.gridCenterPoint;
+                    }];
+                    //实时更新格子的索引下标
+                    preGrid.gridIndex = lastGridIndex;
+                    lastGridIndex--;
+                }
+                //排列格子顺序和更新格子坐标信息
+                [self sortGridList];
+                
+            }else if((fromIndex - toIndex) < 0){
+                //从前往后拖动格子
+                //                NSLog(@"从前往后拖动格子.......");
+                //从移动格子到目标格子之间的所有格子向前移动一格
+                for (NSInteger i = fromIndex; i < toIndex; i++) {
+                    CustomGrid *topOneGrid = self.gridListArray[i];
+                    CustomGrid *nextGrid = self.gridListArray[i+1];
+                    //实时更新格子的索引下标
+                    nextGrid.gridIndex = i;
+                    [UIView animateWithDuration:0.5 animations:^{
+                        nextGrid.center = topOneGrid.gridCenterPoint;
+                    }];
+                }
+                //排列格子顺序和更新格子坐标信息
+                [self sortGridList];
+            }
+        }
+    }
+
+    
 }
 
 #pragma mark - 拖动格子结束
 - (void)pressGestureStateEnded:(CustomGrid *) gridItem
 {
-    _listViweLongPressGestureStateEnded(gridItem);
+    
+    if ( gridItem.isChecked && gridItem.isMove) {
+        //撤销格子的放大特效
+        [UIView animateWithDuration:0.5 animations:^{
+            gridItem.transform = CGAffineTransformIdentity;
+            gridItem.alpha = 1.0;
+            
+            if (!contain) {
+                gridItem.center = originPoint;
+            }
+        }];
+        
+        //排列格子顺序和更新格子坐标信息
+        [self sortGridList];
+    }
+
+    
+    
 
 }
 
@@ -651,11 +834,14 @@
     
     if (_gridListDataSource.count == 0) {
         
+        self.promptLabel.hidden = NO;
+        
         self.promptLabel.frame = CGRectMake(0, CGRectGetMaxY(self.gridListNameLabel.frame), ScreenWidth, cell_Hight - 40);
+        
         [self  addSubview:self.promptLabel];
         
     }else{
-        
+     
         [self  addSubview:self.gridListView];
         
     }

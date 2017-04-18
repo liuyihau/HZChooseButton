@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class CustomGrid;
+typedef void (^loadListViewDataSoruce)(NSMutableArray * dateSource);
 typedef void (^addGridItem)(CustomGrid *gridItem);
 typedef void (^getlistViweHeight)(CGFloat cellHeight,CustomGrid *gridItem,BOOL allGridBtnImageChange);
 typedef void (^listViweClick)(CustomGrid *gridItem);
 typedef void (^listViweLongPress)(CustomGrid *gridItem);
-typedef void (^listViweLongPressGestureStateChanged)(CustomGrid *gridItem);
-typedef void (^listViweLongPressGestureStateEnded)(CustomGrid *gridItem);
+
 
 @interface FunctionMenuView : UIView
 
@@ -22,12 +22,48 @@ typedef void (^listViweLongPressGestureStateEnded)(CustomGrid *gridItem);
  */
 @property (nonatomic, strong) NSMutableArray * gridListDataSource;
 
-@property (nonatomic, strong) addGridItem addGridItem;
-@property (nonatomic, strong) getlistViweHeight getlistViweHeight;
-@property (nonatomic, strong) listViweClick listViweClick;
-@property (nonatomic, strong) listViweLongPress listViweLongPress;
-@property (nonatomic, strong) listViweLongPressGestureStateChanged listViweLongPressGestureStateChanged;
-@property (nonatomic, strong) listViweLongPressGestureStateEnded listViweLongPressGestureStateEnded;
+/**
+ 是否是首页
+ */
+@property (nonatomic, assign) BOOL isHomeView;
+
+/**
+ 刷新首页数据源
+ */
+@property (nonatomic, copy) loadListViewDataSoruce  loadListViewDataSoruce;
+
+/**
+ 添加应用
+ */
+@property (nonatomic, copy) addGridItem addGridItem;
+
+/**
+ 获取视图高度
+ */
+@property (nonatomic, copy) getlistViweHeight getlistViweHeight;
+
+/**
+ 视图点击
+ */
+@property (nonatomic, copy) listViweClick listViweClick;
+
+/**
+ 视图长按
+ */
+@property (nonatomic, copy) listViweLongPress listViweLongPress;
+
+
+/**
+ functionMeunView   相关的操作事件
+
+ @param addGridItem  添加应用
+ @param getlistViweHeight 获取视图高度
+ @param listViweClick 视图点击
+ @param listViweLongPress  视图长按
+ @param loadListViewDataSoruce  刷新首页数据源
+ */
+-(void)functionMeunViewActionWithAddGridItem:(addGridItem)addGridItem getlistViweHeight:(getlistViweHeight)getlistViweHeight listViweClick:(listViweClick)listViweClick listViweLongPress:(listViweLongPress)listViweLongPress loadListViewDataSoruce:(loadListViewDataSoruce)loadListViewDataSoruce;
+
 
 /**
  创建视图并初始化数据源
@@ -63,8 +99,9 @@ typedef void (^listViweLongPressGestureStateEnded)(CustomGrid *gridItem);
  
  @param isPrompthidden 是否隐藏 提示语句
  @param allGridListView 是否是全部应用
+ @param animated        动画
  */
--(void)editGridListViewWithPrompthidden:(BOOL)isPrompthidden isAllGridListView:(BOOL)allGridListView showGridArray:(NSMutableArray *)showGridArray;
+-(void)editGridListViewWithPrompthidden:(BOOL)isPrompthidden isAllGridListView:(BOOL)allGridListView showGridArray:(NSMutableArray *)showGridArray animated:(BOOL)animated;
 
 /**
  我的应用删除，改变全部应用中的某个应用
@@ -78,5 +115,7 @@ typedef void (^listViweLongPressGestureStateEnded)(CustomGrid *gridItem);
  @param selectGrid 选择的项目
  */
 -(void)addGridItemToMyGridListViewWithselectGrid:(CustomGrid *)selectGrid;
+
+
 
 @end

@@ -8,15 +8,23 @@
 
 #import "HZSingletonManager.h"
 
+@interface HZSingletonManager()
+
+@end
+
+static HZSingletonManager * singletonManager = nil;
+
 @implementation HZSingletonManager
 +(HZSingletonManager *)shareInstance
 {
-    static HZSingletonManager * singletonManager = nil;
     @synchronized(self){
         if (!singletonManager) {
-            singletonManager = [[HZSingletonManager alloc]init];
+            singletonManager = [[self alloc]init];
         }
     }
     return singletonManager;
 }
+
+
+
 @end
