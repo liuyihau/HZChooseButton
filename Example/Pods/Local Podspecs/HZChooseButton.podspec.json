@@ -1,6 +1,6 @@
 {
   "name": "HZChooseButton",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "summary": "首页可选择式按钮菜单",
   "description": "首页可选择式按钮菜单，类似于支付宝首页的按钮选择菜单",
   "homepage": "https://github.com/liuyihau/HZChooseButton",
@@ -13,17 +13,14 @@
   },
   "source": {
     "git": "https://github.com/liuyihau/HZChooseButton.git",
-    "tag": "0.1.1"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "HZChooseButton/Classes/**/*",
-  "resource_bundles": {
-    "HZChooseButton": [
-      "HZChooseButton/Assets/*.png"
-    ]
-  },
+  "resources": "HZChooseButton/HZChooseButton.bundle",
+  "requires_arc": true,
   "dependencies": {
     "MJExtension": [
 
