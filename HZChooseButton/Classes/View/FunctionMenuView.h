@@ -62,7 +62,11 @@ typedef void (^listViweLongPress)(CustomGrid *gridItem);
  @param listViweLongPress  视图长按
  @param loadListViewDataSoruce  刷新首页数据源
  */
--(void)functionMeunViewActionWithAddGridItem:(addGridItem)addGridItem getlistViweHeight:(getlistViweHeight)getlistViweHeight listViweClick:(listViweClick)listViweClick listViweLongPress:(listViweLongPress)listViweLongPress loadListViewDataSoruce:(loadListViewDataSoruce)loadListViewDataSoruce;
+-(void)functionMeunViewActionWithAddGridItem:(addGridItem)addGridItem
+                           getlistViweHeight:(getlistViweHeight)getlistViweHeight
+                               listViweClick:(listViweClick)listViweClick
+                           listViweLongPress:(listViweLongPress)listViweLongPress
+                      loadListViewDataSoruce:(loadListViewDataSoruce)loadListViewDataSoruce;
 
 
 /**

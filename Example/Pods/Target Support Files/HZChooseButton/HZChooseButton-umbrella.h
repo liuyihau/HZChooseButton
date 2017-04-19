@@ -12,11 +12,11 @@
 
 #import "ChooseButtonConst.h"
 #import "ChooseButtonViewController.h"
-#import "FunctionMenuView.h"
 #import "HZSingletonManager.h"
-#import "CustomGrid.h"
 #import "UIImage+Extension.h"
 #import "UIView+Extension.h"
+#import "CustomGrid.h"
+#import "FunctionMenuView.h"
 
 FOUNDATION_EXPORT double HZChooseButtonVersionNumber;
 FOUNDATION_EXPORT const unsigned char HZChooseButtonVersionString[];

@@ -7,11 +7,13 @@
 //
 
 #import "HZHomeViewController.h"
+
 #import "ChooseButtonViewController.h"
 #import "FunctionMenuView.h"
 #import "HZSingletonManager.h"
 #import "CustomGrid.h"
 #import "MJExtension.h"
+
 #import "HZTestViewController.h"
 
 @interface HZHomeViewController ()
@@ -35,70 +37,54 @@
     NSMutableArray * arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     
     //创建视图并初始化数据源
-    self.menuView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:arrayM number:7];
+    self.menuView = [[FunctionMenuView alloc] initWithFrame:CGRectZero gridDateSource:arrayM number:7];
     self.menuView.isHomeView = YES;
     
     NSMutableArray * myGridArray =  [HZSingletonManager shareInstance].myGridArray;
     
-    if (myGridArray || myGridArray.count == 0) {
-        
-        myGridArray =  [HZSingletonManager shareInstance].gridDateSource;
-        
-    }
-    
-    //添加全部按钮
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
-    
-    if (myGridArray.count >= 7) {
-        subArray =  [self add_All_GridItemWithItemCount:7 dateSource:myGridArray];
-    }else {
-        subArray = [self add_All_GridItemWithItemCount:myGridArray.count dateSource:myGridArray];
-    }
-
-    //高度设置
-    CGFloat cellHeight = [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:subArray];
+    //高度设置 及 创建视图
+    CGFloat cellHeight = [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:myGridArray];
     
     [self.menuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, cellHeight)];
     
-
+    
     //相关事件处理
     __weak typeof(self) weakSelf = self;
     
-    [self.menuView functionMeunViewActionWithAddGridItem:^(CustomGrid *gridItem) {
-        
-    } getlistViweHeight:^(CGFloat cellHeight, CustomGrid *gridItem, BOOL allGridBtnImageChange) {
-        
-        [weakSelf.menuView setFrame:CGRectMake(0, 100, weakSelf.view.frame.size.width,cellHeight)];
-        
-        [weakSelf.view layoutSubviews];
-        
-    } listViweClick:^(CustomGrid *gridItem) {
-        
-        
-        //全部点击
-        if ([gridItem.int_id isEqualToNumber:[NSNumber numberWithInt:0]]){
+    [self.menuView functionMeunViewActionWithAddGridItem:^(CustomGrid *gridItem) {}
      
-            [weakSelf all_clickWithFromEditBtn:NO];
-  
-        }else{
-            
-            HZTestViewController * test = [[HZTestViewController alloc]init];
-            test.title = gridItem.name;
-            test.view.backgroundColor = [UIColor whiteColor];
-            [self.navigationController pushViewController:test animated:YES];
-    
-        
-        }
+                   getlistViweHeight:^(CGFloat cellHeight, CustomGrid *gridItem, BOOL allGridBtnImageChange) {
 
-    
-    } listViweLongPress:^(CustomGrid *gridItem) {
-        
-        [weakSelf listViweLongPress];
-        
-    } loadListViewDataSoruce:^(NSMutableArray *dateSource) {
-        
-        
-    }];
+                    [weakSelf.menuView setFrame:CGRectMake(0, 100, weakSelf.view.frame.size.width,cellHeight)];
+                    
+                    [weakSelf.view layoutSubviews];
+                   }
+                   listViweClick:^(CustomGrid *gridItem) {
+
+                        //"全部"点击
+                        if ([gridItem.int_id isEqualToNumber:[NSNumber numberWithInt:0]]){
+                     
+                            [weakSelf all_clickWithFromEditBtn:NO];
+                  
+                        }else{//其他按钮点击
+                            
+                            HZTestViewController * test = [[HZTestViewController alloc]init];
+                            test.title = gridItem.name;
+                            test.view.backgroundColor = [UIColor whiteColor];
+                            [self.navigationController pushViewController:test animated:YES];
+                  
+                        }
+
+                    }
+                   listViweLongPress:^(CustomGrid *gridItem) {
+                    //长按
+                        [weakSelf listViweLongPress];
+                        
+                    }
+                   loadListViewDataSoruce:^(NSMutableArray *dateSource) {
+               
+               }
+     ];
     
     
     [self.view addSubview:self.menuView];
@@ -106,7 +92,7 @@
     
 }
 
-#pragma mark - 长按编辑
+#pragma mark - 首页长按编辑
 -(void)listViweLongPress{
 
     //1.创建UIAlertController控制器
@@ -130,28 +116,22 @@
 
 }
 
-
-#pragma mark - 全部 点击
+#pragma mark - "全部" 点击 事件处理
 - (void)all_clickWithFromEditBtn:(BOOL)fromEditBtn{
     
     ChooseButtonViewController * chooseButtonVC = [[ChooseButtonViewController alloc]init];
-    chooseButtonVC.title = @"全部应用";
+
     chooseButtonVC.fromEditBtn  = fromEditBtn;
     __weak typeof(self) weakSelf = self;
+    
     //全部应用 调整后的block，更新首页的数据列表
     chooseButtonVC.func_loadGridListViewDataSoruce = ^(NSMutableArray * dateSource){
 
-        NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
-        if (dateSource.count >= 7) {
-            subArray =  [weakSelf add_All_GridItemWithItemCount:7 dateSource:dateSource];
-        }else {
-           subArray = [weakSelf add_All_GridItemWithItemCount:dateSource.count dateSource:dateSource];
-        }
-        [weakSelf.menuView setGridListDataSource:subArray];
+        [weakSelf.menuView setGridListDataSource:dateSource];
     };
     
-    
-    //全部应用中的点击相应事件
+#pragma mark - 应用 点击相应事件
+    //全部应用 中的 应用 点击相应事件
     chooseButtonVC.func_listViweClick = ^(CustomGrid *gridItem){
         
         HZTestViewController * test = [[HZTestViewController alloc]init];
@@ -167,36 +147,6 @@
 
     
 }
-#pragma mark - 添加了 全部按钮 的模型数组
-/**
- 返回已添加全部的模型数组
-
- @param count 需要呈现的个数 最大7个
- @param dateSource 原来的数据源
- */
-
--(NSMutableArray *)add_All_GridItemWithItemCount:(long int)count dateSource:(NSMutableArray *)dateSource{
-
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
-    
-    NSArray * array = [dateSource subarrayWithRange:NSMakeRange(0,count)];
-    
-    subArray = [NSMutableArray arrayWithArray:array];
-    
-    
-    NSDictionary * temp = @{@"name":@"全部",
-                            @"image":@"icon_all",
-                            @"int_id":@"0",};
-    
-    CustomGrid * customGrid = [CustomGrid mj_objectWithKeyValues:temp];
-    
-    
-    [subArray addObject:customGrid];
-
-    return subArray;
-
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

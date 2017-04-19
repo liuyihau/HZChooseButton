@@ -254,5 +254,12 @@ withCustomGridModel:(CustomGrid *)customGridModel
 }
 
 
+-(NSString *)description{
+    
+    NSString * string = [NSString stringWithFormat:@"name = %@>",self.name];
+    
+    return string;
+    
+}
 
 @end

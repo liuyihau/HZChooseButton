@@ -21,11 +21,6 @@
     CGFloat first_cell_Hight;
     
     CGFloat all_cell_Hight;
-    
-    //选中格子的起始位置
-    CGPoint startPoint;
-    //选中格子的起始坐标位置
-    CGPoint originPoint;
 
 }
 
@@ -113,6 +108,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"全部应用";
+    
     self.view.backgroundColor = [UIColor lightGrayColor];
   
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:[[UIBarButtonItem alloc] initWithCustomView:self.button], nil]];
@@ -137,7 +134,7 @@
 -(void)setupUI{
 #pragma mark =============我的应用===============
     self.showGridArray =  [HZSingletonManager shareInstance].myGridArray;
-    self.gridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.showGridArray number:nil];
+    self.gridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.showGridArray number:nil ];
     first_cell_Hight = [self.gridListView createFunctionMenuViewWithHideDeleteIconImage:NO isHomeView:NO  gridListDataSource:self.showGridArray];
     [self.gridListView setFrame:CGRectMake(0, 0, self.view.frame.size.width, first_cell_Hight)];
  
@@ -188,7 +185,7 @@
 #pragma mark =============全部应用===============
     
     self.allGridArray = [HZSingletonManager shareInstance].gridDateSource;
-    self.allGridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.allGridArray number:nil];
+    self.allGridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.allGridArray number:nil ];
     
     all_cell_Hight = [self.allGridListView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:NO  gridListDataSource:self.allGridArray];
     
@@ -228,11 +225,7 @@
 #pragma mark - 视图长按
 -(void)func_listViweLongPress{
 
-    self.button.selected = YES;
-    
-    [self.gridListView editGridListViewWithPrompthidden:YES isAllGridListView:NO showGridArray:nil animated:NO];
-    [self.allGridListView editGridListViewWithPrompthidden:YES isAllGridListView:YES showGridArray:self.showGridArray animated:NO];
-
+    [self editAction:self.button];
 
 }
 

@@ -283,32 +283,44 @@
     NSString *path =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *filePath = [path stringByAppendingPathComponent:@"showGridArray"];
     NSMutableArray * showGridArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    if (!showGridArray || showGridArray.count == 0) {//第一次启动应用，未选择时数据，默认显示前7个应用数据
-        
-        showGridArray = [NSMutableArray arrayWithCapacity:10];
     
-            for (int i = 0; i < number; i++) {
-                
-                [showGridArray addObject:arrayModel[i]];
-                
-            }
+    //添加一个属性，用于记录 用户是否进行过添加和删除按钮，如果有，那就项目一启动就按照用户的选择项目启动，如果没有，默认从总的数据中选择前7个进行呈现
+    //获取操作的状态
+    NSUserDefaults * defaults =  [NSUserDefaults standardUserDefaults];
+    BOOL is_user_make =  [defaults objectForKey:@"is_user_make"];
+    
+    if (!is_user_make) {
+    
+        if (!showGridArray || showGridArray.count == 0) {//第一次启动应用，未选择时数据，默认显示前7个应用数据
+            
+            showGridArray = [NSMutableArray arrayWithCapacity:10];
         
-
+                for (int i = 0; i < number; i++) {
+                    
+                    [showGridArray addObject:arrayModel[i]];
+                    
+                }
+        }
     }
-    
     //我的应用数据
     [HZSingletonManager shareInstance].myGridArray = showGridArray;
-    
-    
+      
 }
 
 #pragma mark - 首页的数据进行刷新重新排序
 
 -(void)setGridListDataSource:(NSMutableArray *)gridListDataSource{
 
-    _gridListDataSource = gridListDataSource;
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    if (gridListDataSource.count >= 7) {
+        subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:NO];
+    }else {
+        subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:NO];
+    }
+
+    _gridListDataSource = subArray;
     
-    CGFloat cellHeight = [self createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES gridListDataSource:gridListDataSource];
+    CGFloat cellHeight = [self createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES gridListDataSource:subArray];
     
     
     if (self.getlistViweHeight != nil) {
@@ -319,6 +331,37 @@
 
 }
 
+#pragma mark - 添加 全部按钮 的模型数组
+/**
+ 返回已添加全部的模型数组
+ 
+ @param count 需要呈现的个数 最大7个
+ @param dateSource 原来的数据源
+ */
+
+-(NSMutableArray *)add_All_GridItemWithItemCount:(long int)count dateSource:(NSMutableArray *)dateSource isAdd:(BOOL)isAdd{
+    
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    
+    NSArray * array = [dateSource subarrayWithRange:NSMakeRange(0,count)];
+    
+    subArray = [NSMutableArray arrayWithArray:array];
+    
+    
+    NSDictionary * temp = @{@"name":@"全部",
+                            @"image":@"icon_all",
+                            @"int_id":@"0",};
+    
+    CustomGrid * customGrid = [CustomGrid mj_objectWithKeyValues:temp];
+    
+    if (isAdd) {
+        
+         [subArray addObject:customGrid];
+    }
+    
+    return subArray;
+    
+}
 
 #pragma mark - 初始化 页面子视图
 - (CGFloat)createFunctionMenuViewWithHideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView gridListDataSource:(NSMutableArray *)gridListDataSource
@@ -330,11 +373,15 @@
     
 
     self.gridListNameLabel.frame = CGRectMake(10, 10, (ScreenWidth - 50)/4, 30);
-//    全部应用
+    
+    
+    
+    // 全部应用
     if (deleteIconImageHide) {//全部应用 及 首页应用（首页中需要控制数据源）
         
            deleteIconImage = nil;
            self.gridListNameLabel.text = @"全部应用";
+        
         
     }else{//我的应用
     
@@ -345,8 +392,9 @@
             self.gridListPromptLabel.frame = CGRectMake(ScreenWidth/2 + 12, 10, ScreenWidth/2 - 24, 30);
         
             [self addSubview:self.gridListNameLabel];
-      
+        
     }
+    
     [_gridListView removeFromSuperview];
     [self.gridListArray removeAllObjects];
     
@@ -354,10 +402,32 @@
     _gridListView.backgroundColor = [UIColor clearColor];
 
     
-    for (NSInteger index = 0; index < [gridListDataSource count]; index++)
+    //全部按钮的模型数组
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    
+    if (!isHomeView) {
+        
+        subArray = gridListDataSource;
+        
+    }else{
+        
+        if (gridListDataSource.count >= 7) {
+            
+            subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:YES];
+        }else {
+            subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:YES];
+        }
+        
+        
+    }
+
+    
+    
+    
+    for (NSInteger index = 0; index < [subArray count]; index++)
     {
         
-        CustomGrid * customGridM = gridListDataSource[index];
+        CustomGrid * customGridM = subArray[index];
         
         BOOL isAddDelete = YES;
         if ([customGridM.name isEqualToString:@"全部"]) {
@@ -377,11 +447,10 @@
         gridItem.gridCenterPoint = gridItem.center;
         
     }
-    
 
     
     //更新页面
-    CGFloat cellHeight =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:gridListDataSource];
+    CGFloat cellHeight =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
     
     return cell_Hight;
     
@@ -390,7 +459,6 @@
 
 #pragma mark - 更新页面
 -(CGFloat)loadGridListViewWithHideNameLabel:(BOOL)hideNameLabel gridListDataSource:(NSMutableArray *)gridListDataSource
-
 {
     _gridListDataSource = gridListDataSource;
     
@@ -658,6 +726,11 @@
 #pragma mark - 保存更新后数组
 -(void)saveArray
 {
+
+    //保存操作的状态
+    NSUserDefaults * defaults =  [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"is_user_make"];
+    
     
     [HZSingletonManager shareInstance].myGridArray = self.gridListArray;
     
@@ -679,10 +752,12 @@
 #pragma mark - 长按格子
 - (void)pressGestureStateBegan:(UILongPressGestureRecognizer *)longPressGesture withGridItem:(CustomGrid *) grid
 {
+  
     if (self.listViweLongPress != nil) {
         
         self.listViweLongPress(grid);
     }
+    
     
     if (!_isHomeView) {
         
@@ -728,6 +803,7 @@
         }
     }
     
+
 }
 #pragma mark - 拖动位置
 - (void)pressGestureStateChangedWithPoint:(CGPoint) gridPoint gridItem:(CustomGrid *) gridItem
