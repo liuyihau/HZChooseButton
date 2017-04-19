@@ -69,15 +69,18 @@ typedef void (^listViweLongPress)(CustomGrid *gridItem);
                       loadListViewDataSoruce:(loadListViewDataSoruce)loadListViewDataSoruce;
 
 
+
 /**
  创建视图并初始化数据源
  
  @param frame frame
  @param gridDateSource 全部数据源
  @param number 首页呈现个数
+ @param deleteIconImageHide 隐藏删除图标
+ @param isHomeView 是否是主页
  @return 首页呈现数图
  */
-- (id)initWithFrame:(CGRect)frame gridDateSource:(NSMutableArray *)gridDateSource number:(int)number;
+- (id)initWithFrame:(CGRect)frame gridDateSource:(NSMutableArray *)gridDateSource number:(int)number hideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView isAllData:(BOOL)isAllData getheight:(void(^)(CGFloat cellheight))getheight;
 
 /**
  创建功能子视图

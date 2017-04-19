@@ -245,7 +245,7 @@
  @param number 首页呈现个数
  @return 首页呈现数图
  */
-- (id)initWithFrame:(CGRect)frame gridDateSource:(NSMutableArray *)gridDateSource number:(int)number
+- (id)initWithFrame:(CGRect)frame gridDateSource:(NSMutableArray *)gridDateSource number:(int)number hideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView isAllData:(BOOL)isAllData getheight:(void(^)(CGFloat cellheight))getheight
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -255,8 +255,12 @@
         static dispatch_once_t onceToken;
         
         dispatch_once(&onceToken, ^{
-            
-            [self createDataWithgridDateSource:gridDateSource number:number];
+        
+            [self createDataWithgridDateSource:gridDateSource number:number hideDeleteIconImage:deleteIconImageHide isHomeView:isHomeView isAllData:isAllData getheight:^(CGFloat cellheight) {
+                
+                getheight(cellheight);
+                
+            }];
             
         });
         
@@ -266,14 +270,15 @@
 
 /**
  初始化数据源
- @param gridDateSource 全部数据源
+ @param gridDateSource 全部数据源  字典数组
  @param number 首页呈现个数
  
  */
--(void)createDataWithgridDateSource:(NSMutableArray *)gridDateSource number:(int)number
+-(void)createDataWithgridDateSource:(NSMutableArray *)gridDateSource number:(int)number hideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView isAllData:(BOOL)isAllData getheight:(void(^)(CGFloat cellheight))getheight
+
 {
     
-    //所有应用数据
+    //所有应用数据 模型数组
     NSMutableArray * arrayModel = [CustomGrid mj_objectArrayWithKeyValuesArray:gridDateSource];
     
     [HZSingletonManager shareInstance].gridDateSource = arrayModel;
@@ -304,8 +309,117 @@
     }
     //我的应用数据
     [HZSingletonManager shareInstance].myGridArray = showGridArray;
+    
+    CGFloat cellHeight = 0;
+    
+    if (isAllData) {
+        
+      cellHeight =   [self createFunctionMenuViewWithHideDeleteIconImage:deleteIconImageHide isHomeView:isHomeView gridListDataSource:arrayModel];
+
+    }else{
+    
+      cellHeight =  [self createFunctionMenuViewWithHideDeleteIconImage:deleteIconImageHide isHomeView:isHomeView gridListDataSource:showGridArray];
+
+    }
+    
+    getheight(cellHeight);
+    
+    NSLog(@"%f",cellHeight);
       
 }
+
+#pragma mark - 初始化 页面子视图
+- (CGFloat)createFunctionMenuViewWithHideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView gridListDataSource:(NSMutableArray *)gridListDataSource
+{
+    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    
+    normalImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_bg@2x.png"];
+    highlightedImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_pressed_bg@2x.png"];
+    
+    
+    self.gridListNameLabel.frame = CGRectMake(10, 10, (ScreenWidth - 50)/4, 30);
+    
+    
+    
+    // 全部应用
+    if (deleteIconImageHide) {//全部应用 及 首页应用（首页中需要控制数据源）
+        
+        deleteIconImage = nil;
+        self.gridListNameLabel.text = @"全部应用";
+        
+        
+    }else{//我的应用
+        
+        deleteIconImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_plus@2x.png"];
+        
+        self.gridListNameLabel.text = @"我的应用";
+        
+        self.gridListPromptLabel.frame = CGRectMake(ScreenWidth/2 + 12, 10, ScreenWidth/2 - 24, 30);
+        
+        [self addSubview:self.gridListNameLabel];
+        
+    }
+    
+    [_gridListView removeFromSuperview];
+    [self.gridListArray removeAllObjects];
+    
+    _gridListView = [[UIView alloc]init];
+    _gridListView.backgroundColor = [UIColor clearColor];
+    
+    
+    //全部按钮的模型数组
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    
+    if (!isHomeView) {
+        
+        subArray = gridListDataSource;
+        
+    }else{
+        
+        if (gridListDataSource.count >= 7) {
+            
+            subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:YES];
+        }else {
+            subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:YES];
+        }
+        
+        
+    }
+    
+
+    for (NSInteger index = 0; index < [subArray count]; index++)
+    {
+        
+        CustomGrid * customGridM = subArray[index];
+        
+        BOOL isAddDelete = YES;
+        if ([customGridM.name isEqualToString:@"全部"]) {
+            isAddDelete = NO;
+        }
+        
+        CustomGrid *gridItem = [[CustomGrid alloc] initWithFrame:CGRectZero normalImage:normalImage highlightedImage:highlightedImage atIndex:index isAddDelete:isAddDelete deleteIcon:deleteIconImage withCustomGridModel:customGridM];
+        
+        gridItem.delegate = self;
+        gridItem.name = customGridM.name;
+        gridItem.image = customGridM.image;
+        gridItem.int_id = customGridM.int_id;
+        
+        [self.gridListView addSubview:gridItem];
+        [self.gridListArray addObject:gridItem];
+        
+        gridItem.gridCenterPoint = gridItem.center;
+        
+    }
+    
+    
+    //更新页面
+    CGFloat cellHeight =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
+    
+    return cell_Hight;
+    
+    
+}
+
 
 #pragma mark - 首页的数据进行刷新重新排序
 
@@ -360,100 +474,6 @@
     }
     
     return subArray;
-    
-}
-
-#pragma mark - 初始化 页面子视图
-- (CGFloat)createFunctionMenuViewWithHideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView gridListDataSource:(NSMutableArray *)gridListDataSource
-{
-    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    
-    normalImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_bg@2x.png"];
-    highlightedImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_pressed_bg@2x.png"];
-    
-
-    self.gridListNameLabel.frame = CGRectMake(10, 10, (ScreenWidth - 50)/4, 30);
-    
-    
-    
-    // 全部应用
-    if (deleteIconImageHide) {//全部应用 及 首页应用（首页中需要控制数据源）
-        
-           deleteIconImage = nil;
-           self.gridListNameLabel.text = @"全部应用";
-        
-        
-    }else{//我的应用
-    
-            deleteIconImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_plus@2x.png"];
-  
-            self.gridListNameLabel.text = @"我的应用";
-        
-            self.gridListPromptLabel.frame = CGRectMake(ScreenWidth/2 + 12, 10, ScreenWidth/2 - 24, 30);
-        
-            [self addSubview:self.gridListNameLabel];
-        
-    }
-    
-    [_gridListView removeFromSuperview];
-    [self.gridListArray removeAllObjects];
-    
-    _gridListView = [[UIView alloc]init];
-    _gridListView.backgroundColor = [UIColor clearColor];
-
-    
-    //全部按钮的模型数组
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
-    
-    if (!isHomeView) {
-        
-        subArray = gridListDataSource;
-        
-    }else{
-        
-        if (gridListDataSource.count >= 7) {
-            
-            subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:YES];
-        }else {
-            subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:YES];
-        }
-        
-        
-    }
-
-    
-    
-    
-    for (NSInteger index = 0; index < [subArray count]; index++)
-    {
-        
-        CustomGrid * customGridM = subArray[index];
-        
-        BOOL isAddDelete = YES;
-        if ([customGridM.name isEqualToString:@"全部"]) {
-            isAddDelete = NO;
-        }
-        
-        CustomGrid *gridItem = [[CustomGrid alloc] initWithFrame:CGRectZero normalImage:normalImage highlightedImage:highlightedImage atIndex:index isAddDelete:isAddDelete deleteIcon:deleteIconImage withCustomGridModel:customGridM];
-        
-        gridItem.delegate = self;
-        gridItem.name = customGridM.name;
-        gridItem.image = customGridM.image;
-        gridItem.int_id = customGridM.int_id;
-        
-        [self.gridListView addSubview:gridItem];
-        [self.gridListArray addObject:gridItem];
-        
-        gridItem.gridCenterPoint = gridItem.center;
-        
-    }
-
-    
-    //更新页面
-    CGFloat cellHeight =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
-    
-    return cell_Hight;
-    
     
 }
 

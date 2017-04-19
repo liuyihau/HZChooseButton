@@ -10,7 +10,6 @@
 
 #import "ChooseButtonViewController.h"
 #import "FunctionMenuView.h"
-#import "HZSingletonManager.h"
 #import "CustomGrid.h"
 #import "MJExtension.h"
 
@@ -18,6 +17,7 @@
 
 @interface HZHomeViewController ()
 @property (nonatomic, strong) FunctionMenuView * menuView;
+@property (nonatomic, assign) CGFloat cellHeight;
 @end
 
 @implementation HZHomeViewController
@@ -33,24 +33,26 @@
 
 -(void)setupFunctionMenuView{
 
+    //原始数据源
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MoveTag" ofType:@"plist"];
     NSMutableArray * arrayM = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-    
-    //创建视图并初始化数据源
-    self.menuView = [[FunctionMenuView alloc] initWithFrame:CGRectZero gridDateSource:arrayM number:7];
-    self.menuView.isHomeView = YES;
-    
-    NSMutableArray * myGridArray =  [HZSingletonManager shareInstance].myGridArray;
-    
-    //高度设置 及 创建视图
-    CGFloat cellHeight = [self.menuView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:YES  gridListDataSource:myGridArray];
-    
-    [self.menuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, cellHeight)];
-    
-    
+
     //相关事件处理
     __weak typeof(self) weakSelf = self;
     
+    //创建视图并初始化数据源
+    self.menuView = [[FunctionMenuView alloc] initWithFrame:CGRectZero gridDateSource:arrayM number:7 hideDeleteIconImage:YES isHomeView:YES isAllData:NO getheight:^(CGFloat cellheight) {
+        
+        weakSelf.cellHeight = cellheight;
+
+    }];
+
+    self.menuView.isHomeView = YES;
+    
+    //设置Frame
+    [self.menuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, self.cellHeight)];
+    
+    //设置相关事件处理
     [self.menuView functionMeunViewActionWithAddGridItem:^(CustomGrid *gridItem) {}
      
                    getlistViweHeight:^(CGFloat cellHeight, CustomGrid *gridItem, BOOL allGridBtnImageChange) {
@@ -83,9 +85,9 @@
                     }
                    loadListViewDataSoruce:^(NSMutableArray *dateSource) {
                
+                       
                }
      ];
-    
     
     [self.view addSubview:self.menuView];
 

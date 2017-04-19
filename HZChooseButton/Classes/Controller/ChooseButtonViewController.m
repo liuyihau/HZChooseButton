@@ -134,7 +134,7 @@
 -(void)setupUI{
 #pragma mark =============我的应用===============
     self.showGridArray =  [HZSingletonManager shareInstance].myGridArray;
-    self.gridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.showGridArray number:nil ];
+    self.gridListView = [[FunctionMenuView alloc]init];
     first_cell_Hight = [self.gridListView createFunctionMenuViewWithHideDeleteIconImage:NO isHomeView:NO  gridListDataSource:self.showGridArray];
     [self.gridListView setFrame:CGRectMake(0, 0, self.view.frame.size.width, first_cell_Hight)];
  
@@ -185,7 +185,7 @@
 #pragma mark =============全部应用===============
     
     self.allGridArray = [HZSingletonManager shareInstance].gridDateSource;
-    self.allGridListView = [[FunctionMenuView alloc]initWithFrame:CGRectZero gridDateSource:self.allGridArray number:nil ];
+    self.allGridListView = [[FunctionMenuView alloc]init];
     
     all_cell_Hight = [self.allGridListView createFunctionMenuViewWithHideDeleteIconImage:YES isHomeView:NO  gridListDataSource:self.allGridArray];
     
@@ -225,8 +225,12 @@
 #pragma mark - 视图长按
 -(void)func_listViweLongPress{
 
-    [self editAction:self.button];
+    self.button.selected = YES;
+    
+    [self.gridListView editGridListViewWithPrompthidden:YES isAllGridListView:NO showGridArray:nil animated:NO];
+    [self.allGridListView editGridListViewWithPrompthidden:YES isAllGridListView:YES showGridArray:self.showGridArray animated:NO];
 
+    
 }
 
 
