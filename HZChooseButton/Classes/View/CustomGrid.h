@@ -9,19 +9,6 @@
 #import <UIKit/UIKit.h>
 @class CustomGridModel;
 
-//每个格子的X轴间隔
-#define PaddingX 10
-//每个格子的Y轴间隔
-#define PaddingY 10
-
-//每行显示格子的列数
-#define PerRowGridCount 4
-//每列显示格子的行数
-#define PerColumGridCount 6
-//每个格子的宽度
-#define GridWidth ((ScreenWidth-50)/PerRowGridCount)
-
-
 @protocol CustomGridDelegate;
 
 @interface CustomGrid : UIButton
@@ -47,13 +34,18 @@
 //代理方法
 @property(nonatomic, weak)id<CustomGridDelegate> delegate;
 
+
 /**
- * 创建格子
- * @param pointX   格子所在位置的X坐标
- * @param pointY   格子所在位置的Y坐标
- * @param gridId   格子的ID
- * @param index    格子所在位置的索引下标
- * @param isDelete 是否增加删除图标
+ 创建格子
+
+ @param frame 尺寸
+ @param normalImage 背景图片
+ @param highlightedImage 背景高亮图片
+ @param index 位置
+ @param isAddDelete 是否添加删除按钮
+ @param deleteIcon 删除图标
+ @param customGridModel 格子属性
+ @return 格子view
  */
 - (id)initWithFrame:(CGRect)frame
         normalImage:(UIImage *)normalImage

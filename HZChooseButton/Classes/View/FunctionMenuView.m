@@ -323,8 +323,6 @@
     }
     
     getheight(cellHeight);
-    
-    NSLog(@"%f",cellHeight);
       
 }
 

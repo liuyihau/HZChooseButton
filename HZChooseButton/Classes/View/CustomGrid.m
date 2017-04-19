@@ -11,6 +11,18 @@
 #import "UIImage+Extension.h"
 #import "ChooseButtonConst.h"
 
+//每个格子的X轴间隔
+#define PaddingX 10
+//每个格子的Y轴间隔
+#define PaddingY 10
+
+//每行显示格子的列数
+#define PerRowGridCount 4
+//每列显示格子的行数
+#define PerColumGridCount 6
+//每个格子的宽度
+#define GridWidth ((ScreenWidth-50)/PerRowGridCount)
+
 @interface CustomGrid()
 
 @property(nonatomic, strong)UIButton * deleteBtn;
