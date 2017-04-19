@@ -7,9 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CustomGridModel;
+@class CustomGrid;
 
-@protocol CustomGridDelegate;
+@protocol CustomGridDelegate <NSObject>
+
+//响应格子的点击事件
+- (void)gridItemDidClicked:(CustomGrid *)clickItem;
+
+//响应格子删除事件
+- (void)gridItemDidDeleteClicked:(UIButton *)deleteButton selectGrid:(CustomGrid *)selectGrid;
+
+//响应格子的长安手势事件
+- (void)pressGestureStateBegan:(UILongPressGestureRecognizer *)longPressGesture withGridItem:(CustomGrid *) grid;
+
+- (void)pressGestureStateChangedWithPoint:(CGPoint) gridPoint gridItem:(CustomGrid *) gridItem;
+
+- (void)pressGestureStateEnded:(CustomGrid *) gridItem;
+
+@end
+
 
 @interface CustomGrid : UIButton
 //格子的ID
@@ -30,6 +46,7 @@
 @property (nonatomic, assign) BOOL          isShowBorder;
 //全部安全中能否点击
 @property (nonatomic, assign) BOOL          is_can_add;
+
 
 //代理方法
 @property(nonatomic, weak)id<CustomGridDelegate> delegate;
@@ -53,29 +70,12 @@
             atIndex:(NSInteger)index
         isAddDelete:(BOOL)isAddDelete
          deleteIcon:(UIImage *)deleteIcon
-withCustomGridModel:(CustomGridModel *)customGridModel;
+withCustomGridModel:(CustomGrid *)customGridModel;
 
 //根据格子的坐标计算格子的索引位置
 + (NSInteger)indexOfPoint:(CGPoint)point
                withButton:(UIButton *)btn
                 gridArray:(NSMutableArray *)gridListArray;
-
-@end
-
-@protocol CustomGridDelegate <NSObject>
-
-//响应格子的点击事件
-- (void)gridItemDidClicked:(CustomGrid *)clickItem;
-
-//响应格子删除事件
-- (void)gridItemDidDeleteClicked:(UIButton *)deleteButton selectGrid:(CustomGrid *)selectGrid;
-
-//响应格子的长安手势事件
-- (void)pressGestureStateBegan:(UILongPressGestureRecognizer *)longPressGesture withGridItem:(CustomGrid *) grid;
-
-- (void)pressGestureStateChangedWithPoint:(CGPoint) gridPoint gridItem:(CustomGrid *) gridItem;
-
-- (void)pressGestureStateEnded:(CustomGrid *) gridItem;
 
 @end
 
