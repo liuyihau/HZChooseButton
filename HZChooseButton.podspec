@@ -17,11 +17,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'HZChooseButton/Classes/**/*.{h,m}'
 
-  s.resources     = 'HZChooseButton/HZChooseButton/*.png'
-
-  # s.resource_bundles = {
-  #    'HZChooseButton' => ['HZChooseButton/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'HZChooseButton' => ['HZChooseButton/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

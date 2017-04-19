@@ -19,7 +19,11 @@
     "ios": "8.0"
   },
   "source_files": "HZChooseButton/Classes/**/*.{h,m}",
-  "resources": "HZChooseButton/HZChooseButton/*.png",
+  "resource_bundles": {
+    "HZChooseButton": [
+      "HZChooseButton/Assets/*.png"
+    ]
+  },
   "dependencies": {
     "MJExtension": [
 
