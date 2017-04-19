@@ -7,76 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		038C82D434CD3B35D5F385A872966F43 /* NSObject+MJKeyValue.h in Headers */ = {isa = PBXBuildFile; fileRef = A9977149B41075E5934AFAB0DAF72A44 /* NSObject+MJKeyValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		051A816D6DD0CAE13496DDCFE0829167 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = E41124294D5B72B8EDCA4B12CCC9BEBD /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		06F6AE696E957D5B6366BBF149A45C11 /* CustomGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = E73E26D44089096415C2B3FDC48BF6B3 /* CustomGrid.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		094973D2D2F1E3B2E772F93C8147C6B9 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E36799F4BB1096B75C8A7DFEA803B185 /* UIApplication+StrictKeyWindow.m */; };
-		10F7B061E44D23E3C20CDDCA2B151454 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A500D274622F3C73E1FDA47E9E77F3EC /* MJExtensionConst.m */; };
-		134FDCAF371F0FBF2E17675827E7FECE /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F31391FBA6DB21BB52DB952DB91289 /* NSObject+MJKeyValue.m */; };
+		0AC89D15CDD7CFB271F5D9CEE4E6B321 /* UIImage+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 650D1022468E02596BFEF28431A5C854 /* UIImage+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B06B9B5AFDD04D6EFFA16C848B4D2BD /* app_item_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C785C1A865CCEC6DD648DACCE6B3C5 /* app_item_plus@2x.png */; };
+		130845BD80A6E424BFE376732B497CCD /* NSString+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9B18617BE236CE469007F671FF620A /* NSString+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13AE474D3FD5FF30CE1D5FDC1E36312F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
 		156CD52DFCA4C47ED9E63330A245AA32 /* Pods-HZChooseButton_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87C506CC17E107E39D932104A9BF73A9 /* Pods-HZChooseButton_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		18E1C2B8E973EA0476CD71DFD365D996 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
+		17F2FA96ECE5CA501ED48DA8728FCCBF /* MJExtensionConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C4F6A8E757F7DECE0C5F49A3473B62C /* MJExtensionConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB7934C16CE49DE196FFC7BE7278287 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7930FBCE6DABBA3ED73AC7CBBC1A8 /* SwiftSupport.swift */; };
-		1E26301D1D47F7C31B0CCA42DFE4C474 /* MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC0BBE9176667F8D3E3F835050C64D6 /* MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23AC8586709AB377A8342D90FB0797A4 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF7413F6C4896D3612D25CB40224E8 /* NSString+MJExtension.m */; };
-		2B2F162CE731B613C92CA2F789EB007F /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0717CCE1B38F6DB7749D71D63A95B0FA /* UIImage+Extension.m */; };
-		2EF927C0BE22AD2D81CA89BA45B76D3D /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83D97A7B17D0377A9032F15CD856D7 /* MJPropertyKey.m */; };
+		2278ABC5A4870D83D52BFAA1287DF9DA /* NSObject+MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = D2DB4B428D198CD739B7168C99AAE317 /* NSObject+MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		246893E2E939FFDC5F1F5AAB80624629 /* MJPropertyType.h in Headers */ = {isa = PBXBuildFile; fileRef = A456709AFBE06BD9C68753CA27923978 /* MJPropertyType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2698E1E16586003678E45EFD5278C28D /* ChooseButtonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC1F2D50DD0F668DB395AF83C7E476E /* ChooseButtonConst.m */; };
+		2CE75306BD50567C721986DB9D6BF2EC /* app_item_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD20D3B956174F46F07E91BFCB347E5 /* app_item_no@2x.png */; };
+		2F455E8279DC5D310AC1978EA359FE6B /* app_item_pressed_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C78FCCE0E7BA9DC66814486F5D983155 /* app_item_pressed_bg@2x.png */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF8CFD803BE495629994A1CAED2B7FE0 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3198839208B8060DD459D5A833E3582D /* NSObject+MJCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 7540EBF74F9FA9B8290A8A0D96D946B9 /* NSObject+MJCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		343FC8B698C694AFC491D87EF5CB9A7F /* FunctionMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF89AE1CBD16058428D954E58D304 /* FunctionMenuView.m */; };
 		35DD05FD595A6FE7F5A0692D12E319DC /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACD5AB52E4DCC967F577C4431817952 /* UIImage+Diff.m */; };
-		3A98C47ABBD8D98838579E04DAB8537A /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 729706D4773D18522181F1616ED744B3 /* NSObject+MJClass.m */; };
-		3ADB43DBDF23694A35E5949CFA54A6A5 /* CustomGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBDA0BBD8CA3A7FBAD77D3A3E068592 /* CustomGrid.m */; };
-		3D00A5582814AE8F9AA61344711A1CF3 /* HZChooseButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C3DA784BD186CBD9432373CB0E9C5C /* HZChooseButton-dummy.m */; };
-		3ED203511624930693442BE8D4FC40CF /* ChooseButtonViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 188E3822C7E066BB278806B55A4AF612 /* ChooseButtonViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		421CDD701AEE0F2458A84200366CDD0F /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 974BE5C1A3AE58617320C4705178F695 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		473B47F416990AF431A732973F687C6B /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A0D6A737AB8F108D5DE4F6AF26DEB4 /* MJPropertyType.m */; };
-		47DA4B62FF34207C08F87EA9630CFDE0 /* MJPropertyType.h in Headers */ = {isa = PBXBuildFile; fileRef = A456709AFBE06BD9C68753CA27923978 /* MJPropertyType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		482494C08BAC70DB29408FE533BC2CEA /* HZChooseButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 700A38F7F8E4224EC5EB3CE18B0EC894 /* HZChooseButton.bundle */; };
-		482A76621584D7B2AF8469D1E85C29AF /* FunctionMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF89AE1CBD16058428D954E58D304 /* FunctionMenuView.m */; };
+		4DBBDF44926FD1FFA2EA09632B3983AF /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0717CCE1B38F6DB7749D71D63A95B0FA /* UIImage+Extension.m */; };
 		506D761F91EC3583789A837C559972FE /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E430FF6A2AB8B04021B1DBE12B978C /* FBSnapshotTestCase-dummy.m */; };
-		524017FAA98CAC613D0F4AF8993F0E8A /* ChooseButtonConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC751A364DCCCFA51CC9A195440B4A1 /* ChooseButtonConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E0B91832E11A89C747206E48611BD63 /* HZChooseButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3CBC22A268D59DDDCDCBA12E1F3D171 /* HZChooseButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		517776571DD84D4A7DA46919FD5F6D6A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BAC155E37D34ED7F8480CE6DC5A938 /* UIView+Extension.m */; };
+		525A4D0822B8937233EDED3643E9C82B /* MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC0BBE9176667F8D3E3F835050C64D6 /* MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		558E5B7A441670419D006D17A8708AB3 /* ChooseButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF20B10315BB6F82D9CFA20471F81ABF /* ChooseButtonViewController.m */; };
+		5C7591A1B35359F8F7658D21FDDA9DED /* MJExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9C914B099E0B339D802296A398DF7C /* MJExtension.framework */; };
 		69DA8B003216466C60F029CBD79897F1 /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5CB9CA53FE3FA39F3F5005445D9865 /* UIImage+Compare.m */; };
-		6C7F3D5DA4246BD0D9F91A7825175CCB /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F99C6A34D98D261692604C5EA260E8E /* NSObject+MJProperty.m */; };
+		6BC2E4C39A9244691AE7EB69D2B7802D /* UIView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 989C72740C402890E4DAD1F8AA662D5B /* UIView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72802FC5EE514BB6AFC7F189C98F4C1B /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF7413F6C4896D3612D25CB40224E8 /* NSString+MJExtension.m */; };
+		7554AF5E21269F63B4B5298E3F62CAD9 /* CustomGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBDA0BBD8CA3A7FBAD77D3A3E068592 /* CustomGrid.m */; };
 		756564ABAF2892FE7140C92A1CDDCF65 /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 67239D98F96200F6D728058B41AFD688 /* UIImage+Snapshot.m */; };
-		7645572204B5F7074F3CAFE50FCF1257 /* HZSingletonManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A3603DC1D02AC8B41EC741C446A9ECA /* HZSingletonManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C493FFF941B2EE4393F462258B206EC /* UIView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 989C72740C402890E4DAD1F8AA662D5B /* UIView+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7CD98E539FEC5D05534042906FAE917D /* NSObject+MJClass.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8CDDE13CDBE86FF3B372718470D62D /* NSObject+MJClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7E9B14D5F8842A86CA86F2AF45230725 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE5F7AD82F7F488FC236234EC59298F /* XCTest.framework */; };
-		7EDC6F1ED7C9AB42FAF7D965A1FA7C53 /* HZSingletonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C82B3A0AEBC2ED393D377878D0FB7 /* HZSingletonManager.m */; };
-		82301C2F7F903B6B3007E77D7DCC2217 /* NSObject+MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = D2DB4B428D198CD739B7168C99AAE317 /* NSObject+MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		841FF232C33C7D49C58CEFDBE7EEB92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2358EC16E156B137A39215C09A21102C /* UIKit.framework */; };
-		88D0B1685975C6ED90985403702F3ACF /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176661DF05E69276DC04DF40B294FF0 /* NSObject+MJCoding.m */; };
+		84C31AD1BD566C6F2D5265CF96DB7A62 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A500D274622F3C73E1FDA47E9E77F3EC /* MJExtensionConst.m */; };
+		853BF68982503FBCE033097AB02DCE53 /* MJFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AED221AAB125B1F1D88A707881360B /* MJFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91CB0A1B289A1AE458E53CE97A3BAD7F /* HZSingletonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D81C82B3A0AEBC2ED393D377878D0FB7 /* HZSingletonManager.m */; };
 		91D0138ACFAD733E4061F12E450C336C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
+		92A3967361B78504099FA59C9960DAFD /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F99C6A34D98D261692604C5EA260E8E /* NSObject+MJProperty.m */; };
 		9673CF780F48C8E4EC2A331717B1F67C /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = 58EC8F9E78D8D6381A11B41F1748B0EC /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98D00FFB9490CBCD0FF3998D74A844D0 /* ChooseButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF20B10315BB6F82D9CFA20471F81ABF /* ChooseButtonViewController.m */; };
+		97065B31A8D5D557C90EC09E582D326F /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 729706D4773D18522181F1616ED744B3 /* NSObject+MJClass.m */; };
+		9C0F092EB96ACBAB4899A77312C3F3B0 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB74E00ED17B4929C3ED5791B62062 /* MJProperty.m */; };
+		9C7D60205F8F05B9AC45C5AE63AFF3A6 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A0D6A737AB8F108D5DE4F6AF26DEB4 /* MJPropertyType.m */; };
+		9D48C77A3F71033180DEE5C26FF1E010 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
+		9E64C46A3DA7944E9F3F654DF6649874 /* ChooseButtonViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 188E3822C7E066BB278806B55A4AF612 /* ChooseButtonViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A02BA7C3732DFBD3FCA72FC808D4B6C7 /* app_item_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D764E246955FA75ACD95CF459CEC078F /* app_item_bg@2x.png */; };
 		A0E5157251BA54A047CECE134B737E1D /* Pods-HZChooseButton_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D45F65A0A50754CE79740BA4223E7DE /* Pods-HZChooseButton_Example-dummy.m */; };
-		A4272FA55FAF64705A5FED1D5BB2F5B7 /* MJExtensionConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C4F6A8E757F7DECE0C5F49A3473B62C /* MJExtensionConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4F69F3477A935285620AC3031C5C848 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB570AAE4FA1EA76E044D8B08042A97 /* FBSnapshotTestController.m */; };
-		B26C012AB16F3924D7C17F908B8423EF /* MJFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AED221AAB125B1F1D88A707881360B /* MJFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A61090395344992C2895FE4568FF404A /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38789255DD299AF5E9A3A9991ED6E269 /* MJFoundation.m */; };
+		AA490C0A74C0646DD2EB2F0D966C1411 /* MJExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD806360C49882B22A692114E833767C /* MJExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA50495B7A7D8277E25B08256EDEAAA8 /* HZSingletonManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A3603DC1D02AC8B41EC741C446A9ECA /* HZSingletonManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC200CFE147157BE5E254C52263097F1 /* ChooseButtonConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC751A364DCCCFA51CC9A195440B4A1 /* ChooseButtonConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACA72A56F3F9ACA6E3794C9BB3EF2136 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6176661DF05E69276DC04DF40B294FF0 /* NSObject+MJCoding.m */; };
+		B07F7F15F25305F335D89FCC391257FB /* app_item_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4364F4C7AFD731D8AE9051493F93DF2 /* app_item_add@2x.png */; };
 		B27DFD6025D94758785918F1D6F6C060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D9BD9D7C4FBB5300C683021D6CE52 /* QuartzCore.framework */; };
-		B640BEF1DA123805E72B6EC8BB88294F /* MJExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD806360C49882B22A692114E833767C /* MJExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B660C4F730000071C422B309960716BE /* Pods-HZChooseButton_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1427BACC3D840289C0BF15EEB904CD /* Pods-HZChooseButton_Tests-dummy.m */; };
 		B758FB09FE2C06C1B8E36A71A9D76D41 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3995C3C9FA8B2C899C0C4BED3082CBD6 /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB1F6FB85B9A6C6AB494D5C3DC5EE61C /* MJPropertyKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715DE3CC8BF20789C3F4ECE9E24B1BB /* MJPropertyKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B82F0CD627A4268A8D4CF180F43D920F /* NSObject+MJClass.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8CDDE13CDBE86FF3B372718470D62D /* NSObject+MJClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA2F967D496790F982328F1464FDEBBC /* HZChooseButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C3DA784BD186CBD9432373CB0E9C5C /* HZChooseButton-dummy.m */; };
 		BC952FC04FC963C1294DCD619C9B6B3B /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 531EBC561EF14CAAEB25D065B2497A12 /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BE14F2198CDB0DAD98A567981D21C7A1 /* FBSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 78481C7AE371A893A1514E0C2310BAC2 /* FBSnapshotTestCase.m */; };
-		BF91CB5FB77A67E4111B7254F2F5FDBA /* ChooseButtonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC1F2D50DD0F668DB395AF83C7E476E /* ChooseButtonConst.m */; };
+		BE66A9982B0622010A512109237179BF /* HZChooseButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3CBC22A268D59DDDCDCBA12E1F3D171 /* HZChooseButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFCE460CC33E8872B7156D4166340178 /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC3ACF270BDC50B65FF07075D8DD42A /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C18998EF5FCD08422BA1BDB6593401A6 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB74E00ED17B4929C3ED5791B62062 /* MJProperty.m */; };
-		C423C5BA701BEFB0476629E06F88EACB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
-		C5BF585DB38E14759B9A6ABEB76C3C40 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 38789255DD299AF5E9A3A9991ED6E269 /* MJFoundation.m */; };
-		C5D2B926157EF4F42F031ECA89EEAF8F /* NSObject+MJKeyValue.h in Headers */ = {isa = PBXBuildFile; fileRef = A9977149B41075E5934AFAB0DAF72A44 /* NSObject+MJKeyValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C83FC6857C2A02E88063ECF82C9038F8 /* MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 837A9270178D6CA3BCE175C2B0EB848C /* MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C94859610810319B95EB640AC095FB8A /* Pods-HZChooseButton_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BFBE0CD77181F193C69DE73A6A309DC1 /* Pods-HZChooseButton_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C95A22D2C3E06ADE489E2FE6FDD26571 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E83D97A7B17D0377A9032F15CD856D7 /* MJPropertyKey.m */; };
 		CAFA5E486BCE117A7D8C0FBF9DA6666B /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = DA0EB5EFF68AA9C3DB3139E9DC7FCAC7 /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		CE64F3110F0ECAE75FCB560715850BBC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BAC155E37D34ED7F8480CE6DC5A938 /* UIView+Extension.m */; };
 		DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6FC58AEBC026805F46F5D2C5018789 /* FBSnapshotTestCasePlatform.m */; };
-		E33FABF9A78AE9AE9E60D39E9FB460E2 /* MJExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9C914B099E0B339D802296A398DF7C /* MJExtension.framework */; };
-		E3832FDA3B3CF232ACD7972C03221FE4 /* MJExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 083B7CA8B5ED7A9EE0179CF1BD7D653D /* MJExtension-dummy.m */; };
+		DC769B43CE300BDBDD5D1F8D43C24F19 /* FunctionMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2354AF0256F6082413E1A390526EB7 /* FunctionMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCCA690C82EAF32553D92FB3234C2F6F /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F31391FBA6DB21BB52DB952DB91289 /* NSObject+MJKeyValue.m */; };
+		DD457EDBFEEE414791932A70E17E8196 /* MJProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 837A9270178D6CA3BCE175C2B0EB848C /* MJProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4DA4D7479CAFD636A36BD207374C977 /* NSObject+MJCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 7540EBF74F9FA9B8290A8A0D96D946B9 /* NSObject+MJCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA13D0D0D1083EF21D90660E2CA4A485 /* MJExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 083B7CA8B5ED7A9EE0179CF1BD7D653D /* MJExtension-dummy.m */; };
+		EBEDD644B4769F214EDE6E75ABF1E9F3 /* MJPropertyKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715DE3CC8BF20789C3F4ECE9E24B1BB /* MJPropertyKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE1A2F2233207BE102B0C9A4F1EE355A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
-		EE8B8A653725391C26E97F17AB666854 /* NSString+MJExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9B18617BE236CE469007F671FF620A /* NSString+MJExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F5BCF0E66F4E388F6585CE6871459D37 /* FunctionMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2354AF0256F6082413E1A390526EB7 /* FunctionMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8C27303B202449ECCB0B85522A800A3 /* UIImage+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 650D1022468E02596BFEF28431A5C854 /* UIImage+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEEF7C138E075727C8F5E8C5506DD530 /* CustomGrid.h in Headers */ = {isa = PBXBuildFile; fileRef = E73E26D44089096415C2B3FDC48BF6B3 /* CustomGrid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8A0CACE8CD5863407A08EA7A72B1143 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA868C4C9B25F908A46EF2771EA069A /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,21 +95,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5D24241D2D3CF8B7AA29CDB1D1A42EA7;
+			remoteGlobalIDString = FDFAFCBCE2E799BECDB47A4A799579DD;
 			remoteInfo = MJExtension;
 		};
 		CB6360E792CAAD553793F893D7C18831 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B3A69495D2A6259FC27905ED6034DDFC;
+			remoteGlobalIDString = BCEE803A1D3A1A3BE572354A0635DB58;
 			remoteInfo = HZChooseButton;
 		};
-		D603B06EDC8E171DA8F56B25B085B855 /* PBXContainerItemProxy */ = {
+		E79964E9297C47C7A617CE939A034281 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5D24241D2D3CF8B7AA29CDB1D1A42EA7;
+			remoteGlobalIDString = FDFAFCBCE2E799BECDB47A4A799579DD;
 			remoteInfo = MJExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -130,6 +134,7 @@
 		38789255DD299AF5E9A3A9991ED6E269 /* MJFoundation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJFoundation.m; path = MJExtension/MJFoundation.m; sourceTree = "<group>"; };
 		3995C3C9FA8B2C899C0C4BED3082CBD6 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
 		3B1806073A344236337AD9F44069AA3F /* HZChooseButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HZChooseButton.framework; path = HZChooseButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD20D3B956174F46F07E91BFCB347E5 /* app_item_no@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "app_item_no@2x.png"; sourceTree = "<group>"; };
 		3CC751A364DCCCFA51CC9A195440B4A1 /* ChooseButtonConst.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ChooseButtonConst.h; sourceTree = "<group>"; };
 		3FC3ACF270BDC50B65FF07075D8DD42A /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
 		45C7930FBCE6DABBA3ED73AC7CBBC1A8 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
@@ -148,7 +153,6 @@
 		6A9B18617BE236CE469007F671FF620A /* NSString+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MJExtension.h"; path = "MJExtension/NSString+MJExtension.h"; sourceTree = "<group>"; };
 		6CC0BBE9176667F8D3E3F835050C64D6 /* MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJExtension.h; path = MJExtension/MJExtension.h; sourceTree = "<group>"; };
 		6F99C6A34D98D261692604C5EA260E8E /* NSObject+MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJProperty.m"; path = "MJExtension/NSObject+MJProperty.m"; sourceTree = "<group>"; };
-		700A38F7F8E4224EC5EB3CE18B0EC894 /* HZChooseButton.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = HZChooseButton.bundle; sourceTree = "<group>"; };
 		729706D4773D18522181F1616ED744B3 /* NSObject+MJClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJClass.m"; path = "MJExtension/NSObject+MJClass.m"; sourceTree = "<group>"; };
 		7540EBF74F9FA9B8290A8A0D96D946B9 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJCoding.h"; path = "MJExtension/NSObject+MJCoding.h"; sourceTree = "<group>"; };
 		76BAC155E37D34ED7F8480CE6DC5A938 /* UIView+Extension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		9A5D9BD9D7C4FBB5300C683021D6CE52 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		9E83D97A7B17D0377A9032F15CD856D7 /* MJPropertyKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJPropertyKey.m; path = MJExtension/MJPropertyKey.m; sourceTree = "<group>"; };
 		9F41E98A478CB355F03AD5216CF870FE /* MJExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJExtension.xcconfig; sourceTree = "<group>"; };
+		A3C785C1A865CCEC6DD648DACCE6B3C5 /* app_item_plus@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "app_item_plus@2x.png"; sourceTree = "<group>"; };
 		A3FB74E00ED17B4929C3ED5791B62062 /* MJProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJProperty.m; path = MJExtension/MJProperty.m; sourceTree = "<group>"; };
 		A456709AFBE06BD9C68753CA27923978 /* MJPropertyType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyType.h; path = MJExtension/MJPropertyType.h; sourceTree = "<group>"; };
 		A500D274622F3C73E1FDA47E9E77F3EC /* MJExtensionConst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJExtensionConst.m; path = MJExtension/MJExtensionConst.m; sourceTree = "<group>"; };
@@ -182,6 +187,7 @@
 		C1BCF5BE292A402B176F117B42DF3E3C /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CBC22A268D59DDDCDCBA12E1F3D171 /* HZChooseButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HZChooseButton-umbrella.h"; sourceTree = "<group>"; };
 		C718D763F93D0F1B4C17E1444B2BA489 /* Pods-HZChooseButton_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HZChooseButton_Tests-resources.sh"; sourceTree = "<group>"; };
+		C78FCCE0E7BA9DC66814486F5D983155 /* app_item_pressed_bg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "app_item_pressed_bg@2x.png"; sourceTree = "<group>"; };
 		CBA5C8E832D8F48012870059C7EDDDB7 /* Pods-HZChooseButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HZChooseButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CD6BF89AE1CBD16058428D954E58D304 /* FunctionMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FunctionMenuView.m; sourceTree = "<group>"; };
 		CF20B10315BB6F82D9CFA20471F81ABF /* ChooseButtonViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ChooseButtonViewController.m; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 		D27180EBA39CDAD344397633B9E5189E /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
 		D27B324CA4A32627182F9757358D4D13 /* Pods-HZChooseButton_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HZChooseButton_Example-frameworks.sh"; sourceTree = "<group>"; };
 		D2DB4B428D198CD739B7168C99AAE317 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJProperty.h"; path = "MJExtension/NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		D4364F4C7AFD731D8AE9051493F93DF2 /* app_item_add@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "app_item_add@2x.png"; sourceTree = "<group>"; };
+		D764E246955FA75ACD95CF459CEC078F /* app_item_bg@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "app_item_bg@2x.png"; sourceTree = "<group>"; };
 		D7E430FF6A2AB8B04021B1DBE12B978C /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		D81C82B3A0AEBC2ED393D377878D0FB7 /* HZSingletonManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HZSingletonManager.m; sourceTree = "<group>"; };
 		D9208D93F269E59AEFAF4EC3BF6E0978 /* Pods-HZChooseButton_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HZChooseButton_Tests.modulemap"; sourceTree = "<group>"; };
@@ -214,15 +222,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		061C39A387C7912F6D60ECCF605D21E4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18E1C2B8E973EA0476CD71DFD365D996 /* Foundation.framework in Frameworks */,
-				E33FABF9A78AE9AE9E60D39E9FB460E2 /* MJExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1D421A30A1BDB7E1C4216F64D0C939B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,11 +233,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3746D3C3C7997D474CCA071DF29074C6 /* Frameworks */ = {
+		6595843553478282F33E276F3B95C60A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C423C5BA701BEFB0476629E06F88EACB /* Foundation.framework in Frameworks */,
+				9D48C77A3F71033180DEE5C26FF1E010 /* Foundation.framework in Frameworks */,
+				5C7591A1B35359F8F7658D21FDDA9DED /* MJExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +255,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1A2F2233207BE102B0C9A4F1EE355A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF8C82C81DC58684765FB573E5B270E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8A0CACE8CD5863407A08EA7A72B1143 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +299,15 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJExtension";
+			sourceTree = "<group>";
+		};
+		22CD520E4C9C63331CFE64C47726EEB6 /* HZChooseButton */ = {
+			isa = PBXGroup;
+			children = (
+				5300C1E52D490610A78BEC83705646F9 /* HZChooseButton */,
+			);
+			name = HZChooseButton;
+			path = HZChooseButton;
 			sourceTree = "<group>";
 		};
 		28F816CFEAAE11434630B825B0289632 /* Extension */ = {
@@ -344,6 +361,19 @@
 				D67135D1B3141A441F91F9A725D8A4A7 /* MJExtension */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5300C1E52D490610A78BEC83705646F9 /* HZChooseButton */ = {
+			isa = PBXGroup;
+			children = (
+				D4364F4C7AFD731D8AE9051493F93DF2 /* app_item_add@2x.png */,
+				D764E246955FA75ACD95CF459CEC078F /* app_item_bg@2x.png */,
+				3BD20D3B956174F46F07E91BFCB347E5 /* app_item_no@2x.png */,
+				A3C785C1A865CCEC6DD648DACCE6B3C5 /* app_item_plus@2x.png */,
+				C78FCCE0E7BA9DC66814486F5D983155 /* app_item_pressed_bg@2x.png */,
+			);
+			name = HZChooseButton;
+			path = HZChooseButton;
 			sourceTree = "<group>";
 		};
 		53151D4E8E9D0FDE75CBD065EA2F249B /* Const */ = {
@@ -413,15 +443,6 @@
 				45C7930FBCE6DABBA3ED73AC7CBBC1A8 /* SwiftSupport.swift */,
 			);
 			name = SwiftSupport;
-			sourceTree = "<group>";
-		};
-		6C7DCED782FFE36C31172007E0E21221 /* HZChooseButton */ = {
-			isa = PBXGroup;
-			children = (
-				700A38F7F8E4224EC5EB3CE18B0EC894 /* HZChooseButton.bundle */,
-			);
-			name = HZChooseButton;
-			path = HZChooseButton;
 			sourceTree = "<group>";
 		};
 		75546275F56B7E81439DA6346D9FD550 /* Controller */ = {
@@ -494,7 +515,7 @@
 		D615A7BAD8AD6900EAB4C0A53E2CFDF8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6C7DCED782FFE36C31172007E0E21221 /* HZChooseButton */,
+				22CD520E4C9C63331CFE64C47726EEB6 /* HZChooseButton */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -577,22 +598,37 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		503F00078040A6498BF20F0BF926C5DA /* Headers */ = {
+		1748DE6D2FF3FF172982FAABCC435734 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B640BEF1DA123805E72B6EC8BB88294F /* MJExtension-umbrella.h in Headers */,
-				1E26301D1D47F7C31B0CCA42DFE4C474 /* MJExtension.h in Headers */,
-				A4272FA55FAF64705A5FED1D5BB2F5B7 /* MJExtensionConst.h in Headers */,
-				B26C012AB16F3924D7C17F908B8423EF /* MJFoundation.h in Headers */,
-				C83FC6857C2A02E88063ECF82C9038F8 /* MJProperty.h in Headers */,
-				BB1F6FB85B9A6C6AB494D5C3DC5EE61C /* MJPropertyKey.h in Headers */,
-				47DA4B62FF34207C08F87EA9630CFDE0 /* MJPropertyType.h in Headers */,
-				7CD98E539FEC5D05534042906FAE917D /* NSObject+MJClass.h in Headers */,
-				3198839208B8060DD459D5A833E3582D /* NSObject+MJCoding.h in Headers */,
-				C5D2B926157EF4F42F031ECA89EEAF8F /* NSObject+MJKeyValue.h in Headers */,
-				82301C2F7F903B6B3007E77D7DCC2217 /* NSObject+MJProperty.h in Headers */,
-				EE8B8A653725391C26E97F17AB666854 /* NSString+MJExtension.h in Headers */,
+				AA490C0A74C0646DD2EB2F0D966C1411 /* MJExtension-umbrella.h in Headers */,
+				525A4D0822B8937233EDED3643E9C82B /* MJExtension.h in Headers */,
+				17F2FA96ECE5CA501ED48DA8728FCCBF /* MJExtensionConst.h in Headers */,
+				853BF68982503FBCE033097AB02DCE53 /* MJFoundation.h in Headers */,
+				DD457EDBFEEE414791932A70E17E8196 /* MJProperty.h in Headers */,
+				EBEDD644B4769F214EDE6E75ABF1E9F3 /* MJPropertyKey.h in Headers */,
+				246893E2E939FFDC5F1F5AAB80624629 /* MJPropertyType.h in Headers */,
+				B82F0CD627A4268A8D4CF180F43D920F /* NSObject+MJClass.h in Headers */,
+				E4DA4D7479CAFD636A36BD207374C977 /* NSObject+MJCoding.h in Headers */,
+				038C82D434CD3B35D5F385A872966F43 /* NSObject+MJKeyValue.h in Headers */,
+				2278ABC5A4870D83D52BFAA1287DF9DA /* NSObject+MJProperty.h in Headers */,
+				130845BD80A6E424BFE376732B497CCD /* NSString+MJExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35A2E5A2BA4DC95C439E03721DFD3A7A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC200CFE147157BE5E254C52263097F1 /* ChooseButtonConst.h in Headers */,
+				9E64C46A3DA7944E9F3F654DF6649874 /* ChooseButtonViewController.h in Headers */,
+				EEEF7C138E075727C8F5E8C5506DD530 /* CustomGrid.h in Headers */,
+				DC769B43CE300BDBDD5D1F8D43C24F19 /* FunctionMenuView.h in Headers */,
+				BE66A9982B0622010A512109237179BF /* HZChooseButton-umbrella.h in Headers */,
+				AA50495B7A7D8277E25B08256EDEAAA8 /* HZSingletonManager.h in Headers */,
+				0AC89D15CDD7CFB271F5D9CEE4E6B321 /* UIImage+Extension.h in Headers */,
+				6BC2E4C39A9244691AE7EB69D2B7802D /* UIView+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,21 +652,6 @@
 				CAFA5E486BCE117A7D8C0FBF9DA6666B /* UIImage+Compare.h in Headers */,
 				051A816D6DD0CAE13496DDCFE0829167 /* UIImage+Diff.h in Headers */,
 				421CDD701AEE0F2458A84200366CDD0F /* UIImage+Snapshot.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9E100BA689569F007ABA4657CDE38B06 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				524017FAA98CAC613D0F4AF8993F0E8A /* ChooseButtonConst.h in Headers */,
-				3ED203511624930693442BE8D4FC40CF /* ChooseButtonViewController.h in Headers */,
-				06F6AE696E957D5B6366BBF149A45C11 /* CustomGrid.h in Headers */,
-				F5BCF0E66F4E388F6585CE6871459D37 /* FunctionMenuView.h in Headers */,
-				5E0B91832E11A89C747206E48611BD63 /* HZChooseButton-umbrella.h in Headers */,
-				7645572204B5F7074F3CAFE50FCF1257 /* HZSingletonManager.h in Headers */,
-				F8C27303B202449ECCB0B85522A800A3 /* UIImage+Extension.h in Headers */,
-				7C493FFF941B2EE4393F462258B206EC /* UIView+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,13 +720,32 @@
 			productReference = 0C8B85C20F84CB7B8CD8A08125F68E91 /* Pods_HZChooseButton_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5D24241D2D3CF8B7AA29CDB1D1A42EA7 /* MJExtension */ = {
+		BCEE803A1D3A1A3BE572354A0635DB58 /* HZChooseButton */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 689CBFAFA2B15A98CAF6A555A2B158B1 /* Build configuration list for PBXNativeTarget "MJExtension" */;
+			buildConfigurationList = 921792AEA6B0A1D0DCD4F3E687A0B692 /* Build configuration list for PBXNativeTarget "HZChooseButton" */;
 			buildPhases = (
-				E3B06223112062EBFAB24AF3149A9C12 /* Sources */,
-				3746D3C3C7997D474CCA071DF29074C6 /* Frameworks */,
-				503F00078040A6498BF20F0BF926C5DA /* Headers */,
+				EAD4624F3BCE850791BE634ED58A6DA0 /* Sources */,
+				6595843553478282F33E276F3B95C60A /* Frameworks */,
+				35A2E5A2BA4DC95C439E03721DFD3A7A /* Headers */,
+				E1C66F439E0479FDEC90D91DD82D4FAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82AA76247D4A4E919836A7E70A751920 /* PBXTargetDependency */,
+			);
+			name = HZChooseButton;
+			productName = HZChooseButton;
+			productReference = 3B1806073A344236337AD9F44069AA3F /* HZChooseButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FDFAFCBCE2E799BECDB47A4A799579DD /* MJExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AC10A8AB03F5778A2EA22510C43B56C /* Build configuration list for PBXNativeTarget "MJExtension" */;
+			buildPhases = (
+				B20D864464B5B964C6097A52680E93BC /* Sources */,
+				BF8C82C81DC58684765FB573E5B270E2 /* Frameworks */,
+				1748DE6D2FF3FF172982FAABCC435734 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -714,25 +754,6 @@
 			name = MJExtension;
 			productName = MJExtension;
 			productReference = AB4B071E77530C056618BFB9438F0886 /* MJExtension.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B3A69495D2A6259FC27905ED6034DDFC /* HZChooseButton */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 35EB66B4860A1EB2F6829BBFECD88F22 /* Build configuration list for PBXNativeTarget "HZChooseButton" */;
-			buildPhases = (
-				897C5CF92513D9138978C0E53789F78C /* Sources */,
-				061C39A387C7912F6D60ECCF605D21E4 /* Frameworks */,
-				9E100BA689569F007ABA4657CDE38B06 /* Headers */,
-				CF3E8EB33558D747B39C6905B401B6AD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6F300DC9C31420AE64F807C5C5B9C7C8 /* PBXTargetDependency */,
-			);
-			name = HZChooseButton;
-			productName = HZChooseButton;
-			productReference = 3B1806073A344236337AD9F44069AA3F /* HZChooseButton.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -757,8 +778,8 @@
 			projectRoot = "";
 			targets = (
 				34CD2E3428AB802BACA62286FF5074B1 /* FBSnapshotTestCase */,
-				B3A69495D2A6259FC27905ED6034DDFC /* HZChooseButton */,
-				5D24241D2D3CF8B7AA29CDB1D1A42EA7 /* MJExtension */,
+				BCEE803A1D3A1A3BE572354A0635DB58 /* HZChooseButton */,
+				FDFAFCBCE2E799BECDB47A4A799579DD /* MJExtension */,
 				1EC9F6AEFD20FA78DBA1280203B411DB /* Pods-HZChooseButton_Example */,
 				3EF49BE22F93FD7B97656CBE5DD7D9E0 /* Pods-HZChooseButton_Tests */,
 			);
@@ -766,11 +787,15 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CF3E8EB33558D747B39C6905B401B6AD /* Resources */ = {
+		E1C66F439E0479FDEC90D91DD82D4FAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				482494C08BAC70DB29408FE533BC2CEA /* HZChooseButton.bundle in Resources */,
+				B07F7F15F25305F335D89FCC391257FB /* app_item_add@2x.png in Resources */,
+				A02BA7C3732DFBD3FCA72FC808D4B6C7 /* app_item_bg@2x.png in Resources */,
+				2CE75306BD50567C721986DB9D6BF2EC /* app_item_no@2x.png in Resources */,
+				0B06B9B5AFDD04D6EFFA16C848B4D2BD /* app_item_plus@2x.png in Resources */,
+				2F455E8279DC5D310AC1978EA359FE6B /* app_item_pressed_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,26 +810,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		897C5CF92513D9138978C0E53789F78C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF91CB5FB77A67E4111B7254F2F5FDBA /* ChooseButtonConst.m in Sources */,
-				98D00FFB9490CBCD0FF3998D74A844D0 /* ChooseButtonViewController.m in Sources */,
-				3ADB43DBDF23694A35E5949CFA54A6A5 /* CustomGrid.m in Sources */,
-				482A76621584D7B2AF8469D1E85C29AF /* FunctionMenuView.m in Sources */,
-				3D00A5582814AE8F9AA61344711A1CF3 /* HZChooseButton-dummy.m in Sources */,
-				7EDC6F1ED7C9AB42FAF7D965A1FA7C53 /* HZSingletonManager.m in Sources */,
-				2B2F162CE731B613C92CA2F789EB007F /* UIImage+Extension.m in Sources */,
-				CE64F3110F0ECAE75FCB560715850BBC /* UIView+Extension.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9797EA1BE662405CDA0AA57817817A6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B660C4F730000071C422B309960716BE /* Pods-HZChooseButton_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20D864464B5B964C6097A52680E93BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA13D0D0D1083EF21D90660E2CA4A485 /* MJExtension-dummy.m in Sources */,
+				84C31AD1BD566C6F2D5265CF96DB7A62 /* MJExtensionConst.m in Sources */,
+				A61090395344992C2895FE4568FF404A /* MJFoundation.m in Sources */,
+				9C0F092EB96ACBAB4899A77312C3F3B0 /* MJProperty.m in Sources */,
+				C95A22D2C3E06ADE489E2FE6FDD26571 /* MJPropertyKey.m in Sources */,
+				9C7D60205F8F05B9AC45C5AE63AFF3A6 /* MJPropertyType.m in Sources */,
+				97065B31A8D5D557C90EC09E582D326F /* NSObject+MJClass.m in Sources */,
+				ACA72A56F3F9ACA6E3794C9BB3EF2136 /* NSObject+MJCoding.m in Sources */,
+				DCCA690C82EAF32553D92FB3234C2F6F /* NSObject+MJKeyValue.m in Sources */,
+				92A3967361B78504099FA59C9960DAFD /* NSObject+MJProperty.m in Sources */,
+				72802FC5EE514BB6AFC7F189C98F4C1B /* NSString+MJExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,32 +852,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E3B06223112062EBFAB24AF3149A9C12 /* Sources */ = {
+		EAD4624F3BCE850791BE634ED58A6DA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3832FDA3B3CF232ACD7972C03221FE4 /* MJExtension-dummy.m in Sources */,
-				10F7B061E44D23E3C20CDDCA2B151454 /* MJExtensionConst.m in Sources */,
-				C5BF585DB38E14759B9A6ABEB76C3C40 /* MJFoundation.m in Sources */,
-				C18998EF5FCD08422BA1BDB6593401A6 /* MJProperty.m in Sources */,
-				2EF927C0BE22AD2D81CA89BA45B76D3D /* MJPropertyKey.m in Sources */,
-				473B47F416990AF431A732973F687C6B /* MJPropertyType.m in Sources */,
-				3A98C47ABBD8D98838579E04DAB8537A /* NSObject+MJClass.m in Sources */,
-				88D0B1685975C6ED90985403702F3ACF /* NSObject+MJCoding.m in Sources */,
-				134FDCAF371F0FBF2E17675827E7FECE /* NSObject+MJKeyValue.m in Sources */,
-				6C7F3D5DA4246BD0D9F91A7825175CCB /* NSObject+MJProperty.m in Sources */,
-				23AC8586709AB377A8342D90FB0797A4 /* NSString+MJExtension.m in Sources */,
+				2698E1E16586003678E45EFD5278C28D /* ChooseButtonConst.m in Sources */,
+				558E5B7A441670419D006D17A8708AB3 /* ChooseButtonViewController.m in Sources */,
+				7554AF5E21269F63B4B5298E3F62CAD9 /* CustomGrid.m in Sources */,
+				343FC8B698C694AFC491D87EF5CB9A7F /* FunctionMenuView.m in Sources */,
+				BA2F967D496790F982328F1464FDEBBC /* HZChooseButton-dummy.m in Sources */,
+				91CB0A1B289A1AE458E53CE97A3BAD7F /* HZSingletonManager.m in Sources */,
+				4DBBDF44926FD1FFA2EA09632B3983AF /* UIImage+Extension.m in Sources */,
+				517776571DD84D4A7DA46919FD5F6D6A /* UIView+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6F300DC9C31420AE64F807C5C5B9C7C8 /* PBXTargetDependency */ = {
+		82AA76247D4A4E919836A7E70A751920 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MJExtension;
-			target = 5D24241D2D3CF8B7AA29CDB1D1A42EA7 /* MJExtension */;
-			targetProxy = D603B06EDC8E171DA8F56B25B085B855 /* PBXContainerItemProxy */;
+			target = FDFAFCBCE2E799BECDB47A4A799579DD /* MJExtension */;
+			targetProxy = E79964E9297C47C7A617CE939A034281 /* PBXContainerItemProxy */;
 		};
 		A9208CDB3AC3821A20F85BDBD01D9BBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -860,13 +885,13 @@
 		DBC20B764B5F3F08339B6FFB632CCA64 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MJExtension;
-			target = 5D24241D2D3CF8B7AA29CDB1D1A42EA7 /* MJExtension */;
+			target = FDFAFCBCE2E799BECDB47A4A799579DD /* MJExtension */;
 			targetProxy = 9C7B3AB1348C89548C14912CEB852E71 /* PBXContainerItemProxy */;
 		};
 		FA9EB88FDB841E2DDA7185E143F8F838 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HZChooseButton;
-			target = B3A69495D2A6259FC27905ED6034DDFC /* HZChooseButton */;
+			target = BCEE803A1D3A1A3BE572354A0635DB58 /* HZChooseButton */;
 			targetProxy = CB6360E792CAAD553793F893D7C18831 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -920,37 +945,37 @@
 			};
 			name = Debug;
 		};
-		546BC569B80325EA1ECFB464A5B5F06D /* Debug */ = {
+		4948FE4A80C99C14E68A42316D15DFAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F41E98A478CB355F03AD5216CF870FE /* MJExtension.xcconfig */;
+			baseConfigurationReference = 1B742EA351AFCFC39A938016691C68BA /* HZChooseButton.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MJExtension/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/HZChooseButton/HZChooseButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HZChooseButton/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MJExtension/MJExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = MJExtension;
+				MODULEMAP_FILE = "Target Support Files/HZChooseButton/HZChooseButton.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = HZChooseButton;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		82871C63A0409F223A19CA82650C48B1 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1062,6 +1087,38 @@
 			};
 			name = Release;
 		};
+		A02CCD54E97789B89C3A5661988AD518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F41E98A478CB355F03AD5216CF870FE /* MJExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MJExtension/MJExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MJExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MJExtension/MJExtension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MJExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		AA0B5BDEB018901CD8F88AAD05F5B893 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1106,7 +1163,7 @@
 			};
 			name = Release;
 		};
-		AE9AC3A7178C3B8DC06117E08D1CBF40 /* Debug */ = {
+		AB5C78B462F4E6BCA047718A2BD3E8AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B742EA351AFCFC39A938016691C68BA /* HZChooseButton.xcconfig */;
 			buildSettings = {
@@ -1173,7 +1230,7 @@
 			};
 			name = Debug;
 		};
-		D52FF7972FD7960F626847808C217F84 /* Release */ = {
+		D36C1253E925528DEE8274BADECA8164 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F41E98A478CB355F03AD5216CF870FE /* MJExtension.xcconfig */;
 			buildSettings = {
@@ -1182,7 +1239,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1195,7 +1252,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MJExtension/MJExtension.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = MJExtension;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1203,39 +1260,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
-		};
-		D5A84CD17685AACA303A5B034BBE77E3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B742EA351AFCFC39A938016691C68BA /* HZChooseButton.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/HZChooseButton/HZChooseButton-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HZChooseButton/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HZChooseButton/HZChooseButton.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = HZChooseButton;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
+			name = Debug;
 		};
 		DA1E8BEE720AD36E1F8FA7D246AAE512 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1313,6 +1338,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1AC10A8AB03F5778A2EA22510C43B56C /* Build configuration list for PBXNativeTarget "MJExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36C1253E925528DEE8274BADECA8164 /* Debug */,
+				A02CCD54E97789B89C3A5661988AD518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1322,20 +1356,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35EB66B4860A1EB2F6829BBFECD88F22 /* Build configuration list for PBXNativeTarget "HZChooseButton" */ = {
+		921792AEA6B0A1D0DCD4F3E687A0B692 /* Build configuration list for PBXNativeTarget "HZChooseButton" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE9AC3A7178C3B8DC06117E08D1CBF40 /* Debug */,
-				D5A84CD17685AACA303A5B034BBE77E3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		689CBFAFA2B15A98CAF6A555A2B158B1 /* Build configuration list for PBXNativeTarget "MJExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				546BC569B80325EA1ECFB464A5B5F06D /* Debug */,
-				D52FF7972FD7960F626847808C217F84 /* Release */,
+				AB5C78B462F4E6BCA047718A2BD3E8AF /* Debug */,
+				4948FE4A80C99C14E68A42316D15DFAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
