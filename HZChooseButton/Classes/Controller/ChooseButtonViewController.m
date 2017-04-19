@@ -14,7 +14,7 @@
 #import "ChooseButtonConst.h"
 #import "FunctionMenuView.h"
 
-@interface ChooseButtonViewController ()<CustomGridDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ChooseButtonViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL contain;
     

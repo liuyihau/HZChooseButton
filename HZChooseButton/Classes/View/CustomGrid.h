@@ -29,7 +29,7 @@
 
 @interface CustomGrid : UIButton
 //格子的ID
-@property (nonatomic, strong) NSNumber *    int_id;
+@property (nonatomic, assign) int           int_id;
 //格子的title
 @property (nonatomic, strong) NSString *    name;
 //格子的图片

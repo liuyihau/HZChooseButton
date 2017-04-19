@@ -41,7 +41,7 @@
     self = [super init];
     if (self) {
         _image = [aDecoder decodeObjectForKey:@"_image"];
-        _int_id = [aDecoder decodeObjectForKey:@"_int_id"];
+        _int_id = [[aDecoder decodeObjectForKey:@"_int_id"] intValue];
         _name = [aDecoder decodeObjectForKey:@"_name"];
     }
     return self;
@@ -50,7 +50,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.image forKey:@"_image"];
-    [aCoder encodeObject:self.int_id forKey:@"_int_id"];
+    [aCoder encodeObject:[NSNumber numberWithInt:self.int_id] forKey:@"_int_id"];
     [aCoder encodeObject:self.name forKey:@"_name"];
 }
 
@@ -150,7 +150,7 @@ withCustomGridModel:(CustomGrid *)customGridModel
 - (void)gridClick:(CustomGrid *)clickItem
 {
     
-    if ([clickItem.int_id isEqualToNumber:[NSNumber numberWithInt:0]] || clickItem.deleteBtn.hidden) {
+    if (clickItem.int_id == 0|| clickItem.deleteBtn.hidden) {
         
          [self.delegate gridItemDidClicked:clickItem];
      

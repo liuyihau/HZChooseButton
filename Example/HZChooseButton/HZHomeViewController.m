@@ -64,7 +64,7 @@
                    listViweClick:^(CustomGrid *gridItem) {
 
                         //"全部"点击
-                        if ([gridItem.int_id isEqualToNumber:[NSNumber numberWithInt:0]]){
+                        if (gridItem.int_id  ==  0){
                      
                             [weakSelf all_clickWithFromEditBtn:NO];
                   

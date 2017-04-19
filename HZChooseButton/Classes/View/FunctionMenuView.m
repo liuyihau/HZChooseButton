@@ -142,7 +142,7 @@
             
             for (CustomGrid * showGrid in showGridArray) {
                 
-                if ([allGrid.int_id isEqualToNumber:showGrid.int_id]) {
+                if (allGrid.int_id  == showGrid.int_id) {
 
                     [allGrid setIs_can_add:NO];
 
@@ -292,9 +292,9 @@
     //添加一个属性，用于记录 用户是否进行过添加和删除按钮，如果有，那就项目一启动就按照用户的选择项目启动，如果没有，默认从总的数据中选择前7个进行呈现
     //获取操作的状态
     NSUserDefaults * defaults =  [NSUserDefaults standardUserDefaults];
-    BOOL is_user_make =  [defaults objectForKey:@"is_user_make"];
+    BOOL is_user_make =  [[defaults objectForKey:@"is_user_make"] boolValue];
     
-    if (!is_user_make) {
+    if (!is_user_make || is_user_make == NO) {
     
         if (!showGridArray || showGridArray.count == 0) {//第一次启动应用，未选择时数据，默认显示前7个应用数据
             
@@ -411,9 +411,10 @@
     
     
     //更新页面
-    CGFloat cellHeight =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
+    CGFloat height =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
     
-    return cell_Hight;
+    
+    return height;
     
     
 }
@@ -437,7 +438,7 @@
     
     if (self.getlistViweHeight != nil) {
         
-        self.getlistViweHeight(cellHeight,gridListDataSource,nil);
+        self.getlistViweHeight(cellHeight,nil,NO);
     }
     
 
@@ -586,11 +587,11 @@
                     
                     
                     //更新页面
-                    CGFloat cell_Hight = [self loadGridListViewWithHideNameLabel:NO gridListDataSource:self.gridListArray];
+                    CGFloat height = [self loadGridListViewWithHideNameLabel:NO gridListDataSource:self.gridListArray];
                     
                     if (self.getlistViweHeight != nil) {
                         
-                        self.getlistViweHeight(cell_Hight,removeGrid,YES);
+                        self.getlistViweHeight(height,removeGrid,YES);
                     }
                 
                     
@@ -611,7 +612,7 @@
                //将已经选中的 Grid 的状态改为不可点击
                 for (CustomGrid * allGrid in self.gridListArray) {
                     
-                    if ([allGrid.int_id isEqualToNumber:removeGrid.int_id]) {
+                    if (allGrid.int_id == removeGrid.int_id) {
                         
                         [allGrid setIs_can_add:NO];
                         
@@ -707,7 +708,7 @@
 
     for (CustomGrid * allGrid in self.gridListArray) {
 
-        if ([allGrid.int_id isEqualToNumber:selectGrid.int_id]) {
+        if (allGrid.int_id  == selectGrid.int_id) {
 
             [allGrid setIs_can_add:YES];
 
@@ -765,7 +766,6 @@
 
     
 }
-
 
 #pragma mark - 长按格子
 - (void)pressGestureStateBegan:(UILongPressGestureRecognizer *)longPressGesture withGridItem:(CustomGrid *) grid
