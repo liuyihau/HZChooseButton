@@ -18,10 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "HZChooseButton/Classes/**/*.{h,m}",
+  "source_files": "HZChooseButton/Classes/**/*",
   "resource_bundles": {
     "HZChooseButton": [
-      "HZChooseButton/Assets/*.png"
+      "HZChooseButton/Assets/*"
     ]
   },
   "dependencies": {

@@ -13,8 +13,7 @@
 #import "ChooseButtonConst.h"
 #import "ChooseButtonViewController.h"
 #import "HZSingletonManager.h"
-#import "UIImage+Extension.h"
-#import "UIView+Extension.h"
+#import "NSBundle+HZChooseButtonExtension.h"
 #import "CustomGrid.h"
 #import "FunctionMenuView.h"
 
