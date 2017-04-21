@@ -1,4 +1,5 @@
 //
+//  GitHub: https://github.com/liuyihau/HZChooseButton.git
 //  ChooseButtonViewController.m
 //  Pods
 //
@@ -9,7 +10,7 @@
 #import "ChooseButtonViewController.h"
 #import "CustomGrid.h"
 #import "HZSingletonManager.h"
-#import "UIImage+Extension.h"
+#import "NSBundle+HZChooseButtonExtension.h"
 #import "MJExtension.h"
 #import "ChooseButtonConst.h"
 #import "FunctionMenuView.h"

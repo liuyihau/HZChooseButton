@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZChooseButton'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = '首页可选择式按钮菜单'
 
   s.description      = <<-DESC
@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'HZChooseButton/Classes/**/*.{h,m}'
+  s.source_files = 'HZChooseButton/Classes/**/*'
 
   s.resource_bundles = {
-    'HZChooseButton' => ['HZChooseButton/Assets/*.png']
+    'HZChooseButton' => ['HZChooseButton/Assets/*']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

@@ -1,4 +1,5 @@
 //
+//  GitHub: https://github.com/liuyihau/HZChooseButton.git
 //  FunctionMenuView.m
 //  Pods
 //
@@ -10,7 +11,7 @@
 #import "ChooseButtonViewController.h"
 #import "HZSingletonManager.h"
 #import "MJExtension.h"
-#import "UIImage+Extension.h"
+#import "NSBundle+HZChooseButtonExtension.h"
 #import "ChooseButtonConst.h"
 #import "CustomGrid.h"
 
@@ -51,7 +52,7 @@
     
     if (!_gridListNameLabel) {
         
-        _gridListNameLabel = [self createLabelWithText:@"" font:16 textColor:[UIColor blackColor] textAlignment:NSTextAlignmentCenter];
+        _gridListNameLabel = [self createLabelWithText:@"" font:16 textColor:[UIColor blackColor] textAlignment:NSTextAlignmentLeft];
      
     }
     return _gridListNameLabel;
@@ -61,7 +62,7 @@
     
     if (!_gridListPromptLabel) {
         
-        _gridListPromptLabel = [self createLabelWithText:@"按住拖动调整顺序" font:12 textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentRight];
+        _gridListPromptLabel = [self createLabelWithText:[NSBundle hz_localizedStringForKey:@"FunctionMenuView.listPromptLabelText"] font:12 textColor:[UIColor lightGrayColor] textAlignment:NSTextAlignmentRight];
         _gridListPromptLabel.hidden = YES;
         
     }
@@ -85,7 +86,7 @@
     if (!_promptLabel) {
         
         _promptLabel = [[UILabel alloc]init];
-        _promptLabel.text = @"您还未添加任何应用\n长按下面的应用可以添加";
+        _promptLabel.text = [NSBundle hz_localizedStringForKey:@"FunctionMenuView.promptLabelText"];
         _promptLabel.textColor = [UIColor lightGrayColor];
         _promptLabel.font = [UIFont systemFontOfSize:13];
         _promptLabel.textAlignment = NSTextAlignmentCenter;
@@ -329,13 +330,13 @@
 #pragma mark - 初始化 页面子视图
 - (CGFloat)createFunctionMenuViewWithHideDeleteIconImage:(BOOL)deleteIconImageHide isHomeView:(BOOL)isHomeView gridListDataSource:(NSMutableArray *)gridListDataSource
 {
-    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    
-    normalImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_bg@2x.png"];
-    highlightedImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_pressed_bg@2x.png"];
     
     
-    self.gridListNameLabel.frame = CGRectMake(10, 10, (ScreenWidth - 50)/4, 30);
+    normalImage = [NSBundle hz_imageNamed:@"app_item_bg"];
+    highlightedImage = [NSBundle hz_imageNamed:@"app_item_pressed_bg"];
+    
+    
+    self.gridListNameLabel.frame = CGRectMake(10, 10, (ScreenWidth - 50)/3, 30);
     
     
     
@@ -343,16 +344,16 @@
     if (deleteIconImageHide) {//全部应用 及 首页应用（首页中需要控制数据源）
         
         deleteIconImage = nil;
-        self.gridListNameLabel.text = @"全部应用";
+        self.gridListNameLabel.text = [NSBundle hz_localizedStringForKey:@"FunctionMenuView.allApplication"];
         
         
     }else{//我的应用
         
-        deleteIconImage = [UIImage getImageWithCurrentBundle:currentBundle imageName:@"app_item_plus@2x.png"];
+        deleteIconImage = [NSBundle hz_imageNamed:@"app_item_plus"];
+
+        self.gridListNameLabel.text = [NSBundle hz_localizedStringForKey:@"FunctionMenuView.myApplication"];
         
-        self.gridListNameLabel.text = @"我的应用";
-        
-        self.gridListPromptLabel.frame = CGRectMake(ScreenWidth/2 + 12, 10, ScreenWidth/2 - 24, 30);
+        self.gridListPromptLabel.frame = CGRectMake(ScreenWidth/2, 10, ScreenWidth/2 - 10, 30);
         
         [self addSubview:self.gridListNameLabel];
         
@@ -373,6 +374,8 @@
         subArray = gridListDataSource;
         
     }else{
+        
+        self.gridListNameLabel.text = @"";
         
         if (gridListDataSource.count >= 7) {
             

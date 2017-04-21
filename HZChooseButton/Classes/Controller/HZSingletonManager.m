@@ -1,4 +1,5 @@
 //
+//  GitHub: https://github.com/liuyihau/HZChooseButton.git
 //  HZSingletonManager.m
 //  Pods
 //

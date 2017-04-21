@@ -1,4 +1,5 @@
 //
+//  GitHub: https://github.com/liuyihau/HZChooseButton.git
 //  CustomGrid.m
 //  MoveGrid
 //
@@ -7,8 +8,7 @@
 //
 
 #import "CustomGrid.h"
-#import "UIView+Extension.h"
-#import "UIImage+Extension.h"
+#import "NSBundle+HZChooseButtonExtension.h"
 #import "ChooseButtonConst.h"
 
 //每个格子的X轴间隔
@@ -91,7 +91,11 @@ withCustomGridModel:(CustomGrid *)customGridModel
         // 图片icon
         UIImageView * imageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,GridWidth, 34)];
         imageIcon.contentMode = UIViewContentModeCenter;
-        imageIcon.centerY = GridWidth/3;
+        
+        CGPoint center = imageIcon.center;
+        center.y = GridWidth/3;
+        imageIcon.center = center;
+    
         imageIcon.image = [UIImage imageNamed:customGridModel.image];
         imageIcon.tag = self.int_id;
         imageIcon.backgroundColor = [UIColor clearColor];
@@ -249,16 +253,16 @@ withCustomGridModel:(CustomGrid *)customGridModel
 
 -(void)setIs_can_add:(BOOL)is_can_add{
 
-    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+//    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
     
     if (is_can_add) {//能点击
         
-        [_deleteBtn setBackgroundImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_add@2x.png"] forState:UIControlStateNormal];
+        [_deleteBtn setBackgroundImage:[NSBundle hz_imageNamed:@"app_item_add"] forState:UIControlStateNormal];
         self.userInteractionEnabled = YES;
         
     }else{//不能点击
         
-        [_deleteBtn setBackgroundImage:[UIImage getImageWithCurrentBundle:currentBundle imageName: @"app_item_no@2x.png"] forState:UIControlStateNormal];
+        [_deleteBtn setBackgroundImage:[NSBundle hz_imageNamed:@"app_item_no"] forState:UIControlStateNormal];
         self.userInteractionEnabled = NO;
 
     }

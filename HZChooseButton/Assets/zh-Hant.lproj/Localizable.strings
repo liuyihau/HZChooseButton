@@ -1,0 +1,6 @@
+
+//FunctionMenuView
+"FunctionMenuView.myApplication" = "我的應用";
+"FunctionMenuView.allApplication" = "所有應用";
+"FunctionMenuView.listPromptLabelText" = "按住拖動調整順序";
+"FunctionMenuView.promptLabelText" = "您還未添加任何應用\n長按下麵的應用可以添加";
