@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HZBaseViewController : UIViewController
-
+@property (nonatomic, copy) NSString * itemTitle;
 @end

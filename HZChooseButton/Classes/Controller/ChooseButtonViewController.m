@@ -109,8 +109,6 @@
 {
     [super viewDidLoad];
     
-    self.title = @"全部应用";
-    
     self.view.backgroundColor = [UIColor lightGrayColor];
   
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:[[UIBarButtonItem alloc] initWithCustomView:self.button], nil]];

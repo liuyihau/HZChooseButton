@@ -8,13 +8,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HZBaseViewController.h"
 
 @class CustomGrid;
 
 typedef void (^func_loadGridListViewDataSoruce)(NSMutableArray * dateSource);
 typedef void (^func_listViweClick)(CustomGrid *gridItem);
 
-@interface ChooseButtonViewController : UIViewController
+@interface ChooseButtonViewController : HZBaseViewController
 
 
 /**
