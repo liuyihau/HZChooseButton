@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HZTestViewController : UIViewController
+#import "HZBaseViewController.h"
+@interface HZTestViewController : HZBaseViewController
 
 @end

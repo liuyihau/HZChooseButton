@@ -71,7 +71,7 @@
                         }else{//其他按钮点击
                             
                             HZTestViewController * test = [[HZTestViewController alloc]init];
-                            test.title = gridItem.name;
+                            test.itemTitle = gridItem.name;
                             test.view.backgroundColor = [UIColor whiteColor];
                             [self.navigationController pushViewController:test animated:YES];
                   
@@ -123,7 +123,10 @@
     
     ChooseButtonViewController * chooseButtonVC = [[ChooseButtonViewController alloc]init];
 
+    chooseButtonVC.itemTitle = @"全部应用";
+    
     chooseButtonVC.fromEditBtn  = fromEditBtn;
+    
     __weak typeof(self) weakSelf = self;
     
     //全部应用 调整后的block，更新首页的数据列表
@@ -137,7 +140,7 @@
     chooseButtonVC.func_listViweClick = ^(CustomGrid *gridItem){
         
         HZTestViewController * test = [[HZTestViewController alloc]init];
-        test.title = gridItem.name;
+        test.itemTitle = gridItem.name;
         test.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:test animated:YES];
         
