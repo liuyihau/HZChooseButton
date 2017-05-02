@@ -11,18 +11,8 @@
 #import "ChooseButtonViewController.h"
 #import "FunctionMenuView.h"
 #import "CustomGrid.h"
-#import "MJExtension.h"
 
 @interface ChooseButtonAPI : NSObject
-
-/**
- 创建视图并初始化数据源
- 
- @param frame frame
- @param gridDateSource 全部数据源
- @param number 首页呈现个数
- @return 首页呈现数图
- */
 
 /**
  创建视图并初始化数据源
