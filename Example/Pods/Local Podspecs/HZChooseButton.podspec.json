@@ -1,6 +1,6 @@
 {
   "name": "HZChooseButton",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "summary": "首页可选择式按钮菜单",
   "description": "首页可选择式按钮菜单，类似于支付宝首页的按钮选择菜单",
   "homepage": "https://github.com/liuyihau/HZChooseButton",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/liuyihau/HZChooseButton.git",
-    "tag": "0.1.6"
+    "tag": "0.1.7"
   },
   "platforms": {
     "ios": "8.0"

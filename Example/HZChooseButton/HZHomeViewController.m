@@ -7,16 +7,11 @@
 //
 
 #import "HZHomeViewController.h"
-
-#import "ChooseButtonViewController.h"
-#import "FunctionMenuView.h"
-#import "CustomGrid.h"
-#import "MJExtension.h"
-
+#import "ChooseButtonAPI.h"
 #import "HZTestViewController.h"
 
 @interface HZHomeViewController ()
-@property (nonatomic, strong) FunctionMenuView * menuView;
+@property (nonatomic, strong) ChooseButtonAPI * kChooseButtonAPI;
 @property (nonatomic, assign) CGFloat cellHeight;
 @end
 
@@ -29,7 +24,14 @@
     
     [self setupFunctionMenuView];
 }
-
+-(ChooseButtonAPI *)kChooseButtonAPI{
+    
+    if (!_kChooseButtonAPI) {
+        
+        _kChooseButtonAPI= [[ChooseButtonAPI alloc]init];
+    }
+    return _kChooseButtonAPI;
+}
 
 -(void)setupFunctionMenuView{
 
@@ -41,23 +43,21 @@
     __weak typeof(self) weakSelf = self;
     
     //创建视图并初始化数据源
-    self.menuView = [[FunctionMenuView alloc] initWithFrame:CGRectZero gridDateSource:arrayM number:7 hideDeleteIconImage:YES isHomeView:YES isAllData:NO getheight:^(CGFloat cellheight) {
+    [self.kChooseButtonAPI createChooseButtonFrame:CGRectZero gridDateSource:arrayM number:7 hideDeleteIconImage:YES isHomeView:YES isAllData:NO getheight:^(CGFloat cellheight) {
         
         weakSelf.cellHeight = cellheight;
 
     }];
-
-    self.menuView.isHomeView = YES;
     
-    //设置Frame
-    [self.menuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, self.cellHeight)];
+    //重新设置Frame
+    [self.kChooseButtonAPI.functionMenuView setFrame:CGRectMake(0, 100, self.view.frame.size.width, self.cellHeight)];
     
     //设置相关事件处理
-    [self.menuView functionMeunViewActionWithAddGridItem:^(CustomGrid *gridItem) {}
+    [self.kChooseButtonAPI.functionMenuView functionMeunViewActionWithAddGridItem:^(CustomGrid *gridItem) {}
      
                    getlistViweHeight:^(CGFloat cellHeight, CustomGrid *gridItem, BOOL allGridBtnImageChange) {
 
-                    [weakSelf.menuView setFrame:CGRectMake(0, 100, weakSelf.view.frame.size.width,cellHeight)];
+                    [weakSelf.kChooseButtonAPI.functionMenuView setFrame:CGRectMake(0, 100, weakSelf.view.frame.size.width,cellHeight)];
                     
                     [weakSelf.view layoutSubviews];
                    }
@@ -89,8 +89,7 @@
                }
      ];
     
-    [self.view addSubview:self.menuView];
-
+    [self.view addSubview:self.kChooseButtonAPI.functionMenuView];
     
 }
 
@@ -132,7 +131,7 @@
     //全部应用 调整后的block，更新首页的数据列表
     chooseButtonVC.func_loadGridListViewDataSoruce = ^(NSMutableArray * dateSource){
 
-        [weakSelf.menuView setGridListDataSource:dateSource];
+        [weakSelf.kChooseButtonAPI.functionMenuView setGridListDataSource:dateSource];
     };
     
 #pragma mark - 应用 点击相应事件
@@ -152,6 +151,8 @@
 
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

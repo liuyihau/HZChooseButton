@@ -1,5 +1,5 @@
 PODS:
-  - HZChooseButton (0.1.6):
+  - HZChooseButton (0.1.7):
     - MJExtension
   - MJExtension (3.0.13)
 
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HZChooseButton: 2e4d6e0a84f3ea9aa77d0dbc12a65b5a8f5aa09f
+  HZChooseButton: f194772891deb9d3e6cc388c3e5fca908baef3a8
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
 
 PODFILE CHECKSUM: 70892f2ad3d0a271241ce5fc66f634a1f3fb663e
