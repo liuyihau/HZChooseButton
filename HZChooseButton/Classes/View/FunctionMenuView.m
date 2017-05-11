@@ -416,6 +416,8 @@
     //更新页面
     CGFloat height =  [self loadGridListViewWithHideNameLabel:isHomeView gridListDataSource:subArray];
     
+    _isHomeView = isHomeView;
+    
     
     return height;
     

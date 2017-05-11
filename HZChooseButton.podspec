@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HZChooseButton'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = '首页可选择式按钮菜单'
 
   s.description      = <<-DESC
