@@ -15,6 +15,7 @@
 #import "ChooseButtonConst.h"
 #import "CustomGrid.h"
 
+
 @interface FunctionMenuView()<CustomGridDelegate>
 {
     BOOL contain;
@@ -290,7 +291,7 @@
     NSString *filePath = [path stringByAppendingPathComponent:@"showGridArray"];
     NSMutableArray * showGridArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     
-    //添加一个属性，用于记录 用户是否进行过添加和删除按钮，如果有，那就项目一启动就按照用户的选择项目启动，如果没有，默认从总的数据中选择前7个进行呈现
+    //添加一个属性，用于记录 用户是否进行过添加和删除按钮，如果有，那就项目一启动就按照用户的选择项目启动，如果没有，默认从总的数据中选择前(PerRowGridCount*2)个进行呈现
     //获取操作的状态
     NSUserDefaults * defaults =  [NSUserDefaults standardUserDefaults];
     BOOL is_user_make =  [[defaults objectForKey:@"is_user_make"] boolValue];
@@ -299,7 +300,7 @@
     
         if (!showGridArray || showGridArray.count == 0) {//第一次启动应用，未选择时数据，默认显示前7个应用数据
             
-            showGridArray = [NSMutableArray arrayWithCapacity:10];
+            showGridArray = [NSMutableArray arrayWithCapacity:(PerRowGridCount*2)];
         
                 for (int i = 0; i < number; i++) {
                     
@@ -367,7 +368,7 @@
     
     
     //全部按钮的模型数组
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:(PerRowGridCount*2)];
     
     if (!isHomeView) {
         
@@ -377,9 +378,9 @@
         
         self.gridListNameLabel.text = @"";
         
-        if (gridListDataSource.count >= 7) {
+        if (gridListDataSource.count >= (PerRowGridCount * 2 - 1)) {
             
-            subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:YES];
+            subArray =  [self add_All_GridItemWithItemCount:(PerRowGridCount * 2 - 1) dateSource:gridListDataSource isAdd:YES];
         }else {
             subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:YES];
         }
@@ -429,9 +430,9 @@
 
 -(void)setGridListDataSource:(NSMutableArray *)gridListDataSource{
 
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
-    if (gridListDataSource.count >= 7) {
-        subArray =  [self add_All_GridItemWithItemCount:7 dateSource:gridListDataSource isAdd:NO];
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:(PerRowGridCount*2)];
+    if (gridListDataSource.count >= (PerRowGridCount * 2 - 1)) {
+        subArray =  [self add_All_GridItemWithItemCount:(PerRowGridCount * 2 - 1) dateSource:gridListDataSource isAdd:NO];
     }else {
         subArray = [self add_All_GridItemWithItemCount:gridListDataSource.count dateSource:gridListDataSource isAdd:NO];
     }
@@ -453,13 +454,13 @@
 /**
  返回已添加全部的模型数组
  
- @param count 需要呈现的个数 最大7个
+ @param count 需要呈现的个数 最大个
  @param dateSource 原来的数据源
  */
 
 -(NSMutableArray *)add_All_GridItemWithItemCount:(long int)count dateSource:(NSMutableArray *)dateSource isAdd:(BOOL)isAdd{
     
-    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:8];
+    NSMutableArray * subArray = [NSMutableArray arrayWithCapacity:(PerRowGridCount*2)];
     
     NSArray * array = [dateSource subarrayWithRange:NSMakeRange(0,count)];
     
@@ -487,11 +488,11 @@
     _gridListDataSource = gridListDataSource;
     
     NSInteger gridHeight;
-    if (gridListDataSource.count % 4 == 0) {
-        gridHeight = ((ScreenWidth-50)/4  + 10) * gridListDataSource.count/4 + 10;
+    if (gridListDataSource.count % PerRowGridCount == 0) {
+        gridHeight = (GridHeight  + PaddingY) * gridListDataSource.count/PerRowGridCount + PaddingY;
     }
     else{
-        gridHeight = ((ScreenWidth-50)/4  + 10) * (gridListDataSource.count/4+1) + 10;
+        gridHeight = (GridHeight  + PaddingY) * (gridListDataSource.count/PerRowGridCount+1) + 10;
     }
     
     if (gridListDataSource.count == 0) {
@@ -506,9 +507,9 @@
         
         [_gridListView setFrame:CGRectMake(0,0, ScreenWidth, gridHeight)];
 
-        if (gridListDataSource.count < 4) {
+        if (gridListDataSource.count < PerRowGridCount) {
             
-            gridHeight = ((ScreenWidth-50)/4  + 10) + gridListDataSource.count/4 + 10;
+            gridHeight = (GridHeight  + PaddingY) + gridListDataSource.count/PerRowGridCount + PaddingY;
         }
         
         cell_Hight = gridHeight;
@@ -518,8 +519,8 @@
         [_gridListView setFrame:CGRectMake(0, CGRectGetMaxY(self.gridListNameLabel.frame) , ScreenWidth, gridHeight)];
         
         
-        if (gridListDataSource.count < 4) {
-            gridHeight = ((ScreenWidth-50)/4  + 10) + gridListDataSource.count/4 + 10;
+        if (gridListDataSource.count < PerRowGridCount) {
+            gridHeight = (GridHeight  + PaddingY) + gridListDataSource.count/PerRowGridCount + PaddingY;
         }
         
         cell_Hight = gridHeight + 40;

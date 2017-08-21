@@ -9,6 +9,7 @@
 #import "HZHomeViewController.h"
 #import "ChooseButtonAPI.h"
 #import "HZTestViewController.h"
+#import "ChooseButtonConst.h"
 
 @interface HZHomeViewController ()
 @property (nonatomic, strong) ChooseButtonAPI * kChooseButtonAPI;
@@ -33,6 +34,8 @@
     return _kChooseButtonAPI;
 }
 
+#warning 注意：每一行放几个按钮 在 "ChooseButtonConst.h" 中的 "#define PerRowGridCount = 5" 设置即可;
+
 -(void)setupFunctionMenuView{
 
     //原始数据源
@@ -43,7 +46,8 @@
     __weak typeof(self) weakSelf = self;
     
     //创建视图并初始化数据源
-    [self.kChooseButtonAPI createChooseButtonFrame:CGRectZero gridDateSource:arrayM number:7 hideDeleteIconImage:YES isHomeView:YES isAllData:NO getheight:^(CGFloat cellheight) {
+    
+    [self.kChooseButtonAPI createChooseButtonFrame:CGRectZero gridDateSource:arrayM number:(PerRowGridCount * 2 - 1) hideDeleteIconImage:YES isHomeView:YES isAllData:NO getheight:^(CGFloat cellheight) {
         
         weakSelf.cellHeight = cellheight;
 

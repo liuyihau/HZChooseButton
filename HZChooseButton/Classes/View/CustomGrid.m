@@ -11,17 +11,6 @@
 #import "NSBundle+HZChooseButtonExtension.h"
 #import "ChooseButtonConst.h"
 
-//每个格子的X轴间隔
-#define PaddingX 10
-//每个格子的Y轴间隔
-#define PaddingY 10
-
-//每行显示格子的列数
-#define PerRowGridCount 4
-//每列显示格子的行数
-#define PerColumGridCount 6
-//每个格子的宽度
-#define GridWidth ((ScreenWidth-50)/PerRowGridCount)
 
 @interface CustomGrid()
 
@@ -78,9 +67,9 @@ withCustomGridModel:(CustomGrid *)customGridModel
         //计算每个格子的X坐标
         CGFloat pointX = (index % PerRowGridCount) * (GridWidth + PaddingX) + PaddingX;
         //计算每个格子的Y坐标
-        CGFloat pointY = (index / PerRowGridCount) * ((ScreenWidth-50)/4  + PaddingY) + PaddingY;
+        CGFloat pointY = (index / PerRowGridCount) * (GridHeight  + PaddingY) + PaddingY;
         
-        [self setFrame:CGRectMake(pointX, pointY, GridWidth, (ScreenWidth-50)/4)];
+        [self setFrame:CGRectMake(pointX, pointY, GridWidth,GridHeight)];
         [self setBackgroundImage:normalImage forState:UIControlStateNormal];
         [self setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:14];

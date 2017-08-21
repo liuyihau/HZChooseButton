@@ -32,7 +32,16 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 #define ISIPHONE5s ( [UIScreen mainScreen].bounds.size.width >=320 && [UIScreen mainScreen].bounds.size.width <375)
 
 
-
+//每个格子的X轴间隔
+#define PaddingX 5
+//每个格子的Y轴间隔
+#define PaddingY 5
+//每行显示格子的列数
+#define PerRowGridCount 5
+//每个格子的宽度
+#define GridWidth ((ScreenWidth-((PerRowGridCount + 1)* PaddingX))/PerRowGridCount)
+//每个格子的宽度
+#define GridHeight GridWidth
 
 @interface ChooseButtonConst : NSObject
 
